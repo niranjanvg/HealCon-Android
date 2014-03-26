@@ -1,0 +1,26 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="601" measuredH="438" mockupW="315" mockupH="435">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::iPad" x="286" y="3" w="315" h="435" measuredW="616" measuredH="916" zOrder="0" locked="false" isInGroup="-1"/>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::TextInput" x="356" y="60" w="174" h="-1" measuredW="125" measuredH="27" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%09News%20Title</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Icon" x="323" y="61" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>HLinesIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::Image" x="356" y="102" w="174" h="101" measuredW="3264" measuredH="2448" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>../../../../Pictures/iPhoto%2520Library.photolibrary/Masters/2014/03/20/20140320-093726/IMG_0171.JPG</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::TextArea" x="347" y="218" w="200" h="151" measuredW="200" measuredH="140" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>News%20detail%20goes%20here.....</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
