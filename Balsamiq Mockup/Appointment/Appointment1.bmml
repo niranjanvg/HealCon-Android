@@ -12,7 +12,7 @@
         <icon>HLinesIcon%7Csmall</icon>
       </controlProperties>
     </control>
-    <control controlID="7" controlTypeID="com.balsamiq.mockups::Label" x="323" y="104" w="-1" h="-1" measuredW="89" measuredH="21" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Label" x="341" y="106" w="-1" h="-1" measuredW="89" measuredH="21" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Choose%20a%20date%3A</text>
       </controlProperties>
