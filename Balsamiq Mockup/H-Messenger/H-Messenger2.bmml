@@ -1,0 +1,31 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="601" measuredH="438" mockupW="315" mockupH="435">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::iPad" x="286" y="3" w="315" h="435" measuredW="616" measuredH="916" zOrder="0" locked="false" isInGroup="-1"/>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::TextInput" x="356" y="60" w="183" h="-1" measuredW="142" measuredH="27" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%09H-Messenger</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Icon" x="323" y="61" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>HLinesIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::Webcam" x="323" y="117" w="45" h="43" measuredW="177" measuredH="146" zOrder="3" locked="false" isInGroup="-1"/>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::TextArea" x="373" y="117" w="195" h="232" measuredW="200" measuredH="140" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Hi%20Alex%2C%20%20I%20can%20help%20you%20with%20this%2C%20this%20usually%20happens%20when...</text>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::Icon" x="544" y="61" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>PencilIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Label" x="508" y="301" w="-1" h="-1" measuredW="52" measuredH="37" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%20%20Today%5Cn%2011%3A17%20am</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
