@@ -1,9 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:baselineAligned="false"
     android:orientation="vertical" >
+    
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"/>
 
     <fragment
         android:id="@+id/datepicker"
@@ -11,6 +15,11 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         class="com.example.healconn.DatePicker" />
+    
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"/>
 
     <fragment
         android:id="@+id/showlocation"
@@ -18,5 +27,12 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         class="com.example.healconn.ShowLocation" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        android:layout_gravity="right"
+        android:layout_weight="0.2"
+        android:text="Next" />
 
 </LinearLayout>
