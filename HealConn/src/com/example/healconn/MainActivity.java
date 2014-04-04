@@ -1,15 +1,12 @@
 package com.example.healconn;
 
 import android.app.Activity;
-import android.app.ActionBar;
-import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
+import android.widget.ImageButton;
 
 public class MainActivity extends Activity {
 
@@ -17,6 +14,23 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		ImageButton bttAppoint = (ImageButton) findViewById(R.id.button_appointment);
+		ImageButton bttNews = (ImageButton) findViewById(R.id.button_news);
+		ImageButton bttMessenger = (ImageButton) findViewById(R.id.button_messenger);
+		ImageButton bttForms = (ImageButton) findViewById(R.id.button_forms);
+		
+		// Setup listeners for the buttons
+		bttAppoint.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// Launch the appointment scheduling activity
+				Intent intent = new Intent(getBaseContext(), ScheduleActivity.class);
+				startActivity(intent);
+			}
+		});	
+		
 	}
 
 	@Override
