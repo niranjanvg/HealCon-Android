@@ -9,7 +9,8 @@ import android.view.View;
 import android.widget.ImageButton;
 
 public class MainActivity extends Activity {
-
+	/** Revised by yijiem **/
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
