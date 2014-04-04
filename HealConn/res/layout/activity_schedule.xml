@@ -29,6 +29,7 @@
         class="com.example.healconn.ShowLocation" />
 
     <Button
+        android:id="@+id/button_next"
         android:layout_width="100dp"
         android:layout_height="0dp"
         android:layout_gravity="right"

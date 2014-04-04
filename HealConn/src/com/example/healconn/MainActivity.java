@@ -31,6 +31,28 @@ public class MainActivity extends Activity {
 			}
 		});	
 		
+		// Listener for button Appointment
+		bttAppoint.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// Launch the appointment scheduling activity
+				Intent intent = new Intent(getBaseContext(), ScheduleActivity.class);
+				startActivity(intent);
+			}
+		});	
+		
+		// Listener for button News
+		bttNews.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// Launch the news activity
+				Intent intent = new Intent(getBaseContext(), NewsActivity.class);
+				startActivity(intent);				
+			}
+		});
+		
 	}
 
 	@Override
