@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.ImageButton;
 
 public class MainActivity extends Activity {
+    
+    System.out.println("Wenting Shi");
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
