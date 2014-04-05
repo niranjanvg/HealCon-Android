@@ -38,6 +38,10 @@
             android:name="com.example.healconn.FeedbackFormActivity"
             android:label="@string/title_activity_feedback_form" >
         </activity>
+        <activity
+            android:name="com.example.healconn.MessengerActivity"
+            android:label="@string/title_activity_messenger" >
+        </activity>
     </application>
 
 </manifest>

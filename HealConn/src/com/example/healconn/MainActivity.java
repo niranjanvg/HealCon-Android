@@ -64,6 +64,15 @@ public class MainActivity extends Activity {
 			}
 		});
 			
+        bttMessenger.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// Launch the appointment scheduling activity
+				Intent intent = new Intent(getBaseContext(), MessengerActivity.class);
+				startActivity(intent);
+			}
+		});
 	}
 
 	@Override

@@ -3,27 +3,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:baselineAligned="false"
-    android:orientation="horizontal" >
+    android:orientation="vertical" >
 
-    <fragment
-        android:id="@+id/userinfo"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1"
-        class="com.example.healconn.UserInfo" />
+        android:orientation="horizontal" >
     
-    <!-- Vertical Seperationg Line between two fragments -->
-    <View
-    	android:layout_width="3dp"
-    	android:layout_height="fill_parent"
-    	android:background="@android:color/black"/>
+    	<fragment
+    	    android:id="@+id/homescreen_logo"
+    	    android:layout_width="match_parent"
+    	    android:layout_height="match_parent"
+    	    class="com.example.healconn.HomescreenLogo" />
+    
+    </LinearLayout>
 
-    <fragment
-        android:id="@+id/homescreen"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
-        class="com.example.healconn.HomeScreen" />
+    <View
+    	android:layout_width="fill_parent"
+    	android:layout_height="3dp"
+    	android:background="@android:color/black"/>
+    
+	<LinearLayout
+	    android:layout_height="0dp"
+	    android:layout_width="match_parent"
+	    android:layout_weight="5"
+	    android:orientation="horizontal" >"
+	    
+    	<fragment
+        	android:id="@+id/userinfo"
+        	android:layout_width="0dp"
+        	android:layout_height="match_parent"
+        	android:layout_weight="1"
+        	class="com.example.healconn.UserInfo" />
+    
+    	<!-- Vertical Seperationg Line between two fragments -->
+    	<View
+    		android:layout_width="3dp"
+    		android:layout_height="fill_parent"
+    		android:background="@android:color/black"/>
+
+    	<fragment
+        	android:id="@+id/homescreen"
+        	android:layout_width="0dp"
+        	android:layout_height="match_parent"
+        	android:layout_weight="2"
+        	class="com.example.healconn.HomeScreen" />
+    	
+	</LinearLayout>
 
 </LinearLayout>
 
