@@ -53,6 +53,17 @@ public class MainActivity extends Activity {
 			}
 		});
 		
+		// Listener for button News
+		bttForms.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// Launch the news activity
+				Intent intent = new Intent(getBaseContext(), FormsActivity.class);
+				startActivity(intent);				
+			}
+		});
+			
 	}
 
 	@Override

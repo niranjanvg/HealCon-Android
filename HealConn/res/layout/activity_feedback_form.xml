@@ -1,0 +1,203 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:orientation="vertical" >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+    </View>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="  Doctor on duty? "
+        android:textSize="28sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:orientation="vertical" >
+        
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            
+            <View
+            	android:layout_width="30dp"
+            	android:layout_height="match_parent" >
+        	</View>
+            
+            <ImageView
+		        android:id="@+id/imageView1"
+		        android:layout_width="160dp"
+		        android:layout_height="150dp"
+		        android:src="@drawable/user"
+		        android:layout_gravity="center" />
+            
+            <View
+            	android:layout_width="30dp"
+            	android:layout_height="match_parent" >
+        	</View>
+            
+            <ImageView
+		        android:id="@+id/imageView1"
+		        android:layout_width="160dp"
+		        android:layout_height="150dp"
+		        android:src="@drawable/user"
+		        android:layout_gravity="center" />
+            
+            <View
+            	android:layout_width="30dp"
+            	android:layout_height="match_parent" >
+        	</View>            
+            
+            <ImageView
+		        android:id="@+id/imageView1"
+		        android:layout_width="160dp"
+		        android:layout_height="150dp"
+		        android:src="@drawable/user"
+		        android:layout_gravity="center" />
+                        
+        </LinearLayout>
+        
+
+        <RadioGroup
+            android:id="@+id/radioGroup1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            
+            <View
+            	android:layout_width="0dp"
+            	android:layout_height="wrap_content"
+            	android:layout_weight="0.2" >
+        	</View>
+            
+            <RadioButton
+                android:id="@+id/radio0"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="Dr.Mary"
+                android:textSize="24sp" />
+            
+            <View
+            	android:layout_width="0dp"
+            	android:layout_height="wrap_content"
+            	android:layout_weight="0.2" >
+        	</View>
+
+            <RadioButton
+                android:id="@+id/radio1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Dr.Peter"
+                android:textSize="24sp" />
+            
+            <View
+            	android:layout_width="0dp"
+            	android:layout_height="wrap_content"
+            	android:layout_weight="0.2" >
+        	</View>
+
+            <RadioButton
+                android:id="@+id/radio2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Dr.Bob"
+                android:textSize="24sp" />
+            
+            <View
+            	android:layout_width="0dp"
+            	android:layout_height="wrap_content"
+            	android:layout_weight="0.2" >
+        	</View>
+        	
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="  How would you rate this service?"
+        android:textSize="28sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  (Hint: 5 star means extremely satisfied) "
+            android:textSize="24sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp" >
+        </View>
+
+        <RatingBar
+            android:id="@+id/ratingBar1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/feedback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Very satisfied"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="  Additional comments? "
+        android:textSize="28sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/addtional_comments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textMultiLine" >
+
+            <requestFocus />
+        </EditText>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_submit"
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        android:layout_gravity="right"
+        android:layout_weight="1"
+        android:text="Submit" >
+    </Button>
+
+</LinearLayout>

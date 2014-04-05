@@ -6,5 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_schedule">H-Appointment</string>
     <string name="title_activity_news">H-News</string>
+    <string name="title_activity_forms">H-Forms</string>
+    <string name="title_activity_feedback_form">Appointment Feedback Form</string>
 
 </resources>

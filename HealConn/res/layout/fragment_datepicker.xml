@@ -17,6 +17,5 @@
         android:layout_height="0dp"
         android:layout_weight="5"
         android:src="@drawable/calender" />
-        
-    
+            
 </LinearLayout>
