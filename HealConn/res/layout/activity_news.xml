@@ -15,105 +15,18 @@
         android:textSize="20sp">            
     </SearchView>
 
-    <ScrollView
-        android:id="@+id/scroll_news"
+    <ListView
+        android:id="@android:id/list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
-            
-            <View
-    			android:layout_width="fill_parent"
-    			android:layout_height="2dp"
-    			android:background="@android:color/black"/>            
-            
-	        <ImageButton
-	            android:id="@+id/button_news1"
-	            android:layout_width="match_parent"
-	            android:layout_height="150dp"
-	            android:background="@drawable/news1"/>
-	        
-            <View
-    			android:layout_width="fill_parent"
-    			android:layout_height="2dp"
-    			android:background="@android:color/black"/>
-	        
-	        <ImageButton
-	            android:id="@+id/button_news2"
-	            android:layout_width="match_parent"
-	            android:layout_height="150dp"
-	            android:background="@drawable/news2"/> 
-	            
-            <View
-    			android:layout_width="fill_parent"
-    			android:layout_height="2dp"
-    			android:background="@android:color/black"/>
-	        
-	        <ImageButton
-	            android:id="@+id/button_news3"
-	            android:layout_width="match_parent"
-	            android:layout_height="150dp"
-	            android:background="@drawable/news3"/>
-	        
-            <View
-    			android:layout_width="fill_parent"
-    			android:layout_height="2dp"
-    			android:background="@android:color/black"/>
-	        
-	        <ImageButton
-	            android:id="@+id/button_news4"
-	            android:layout_width="match_parent"
-	            android:layout_height="150dp"
-	            android:background="@drawable/news4"/>
-	        
-            <View
-    			android:layout_width="fill_parent"
-    			android:layout_height="2dp"
-    			android:background="@android:color/black"/>        
-	        
-	        <ImageButton
-	            android:id="@+id/button_news5"
-	            android:layout_width="match_parent"
-	            android:layout_height="150dp"
-	            android:background="@drawable/news5"/>
-	        
-            <View
-    			android:layout_width="fill_parent"
-    			android:layout_height="2dp"
-    			android:background="@android:color/black"/>
-	        
-	        <ImageButton
-	            android:id="@+id/button_news6"
-	            android:layout_width="match_parent"
-	            android:layout_height="150dp"
-	            android:background="@drawable/news6"/>
-	        
-            <View
-    			android:layout_width="fill_parent"
-    			android:layout_height="2dp"
-    			android:background="@android:color/black"/>
-	        
-	        <ImageButton
-	            android:id="@+id/button_news7"
-	            android:layout_width="match_parent"
-	            android:layout_height="150dp"
-	            android:background="@drawable/news7"/>
-	        
-            <View
-    			android:layout_width="fill_parent"
-    			android:layout_height="2dp"
-    			android:background="@android:color/black"/>	
-	        
-	        <ImageButton
-	            android:id="@+id/button_news8"
-	            android:layout_width="match_parent"
-	            android:layout_height="150dp"
-	            android:background="@drawable/news8"/>                                                	        	            
-        </LinearLayout>
+        android:layout_height="wrap_content" >
+    </ListView>
+    
+    <TextView
+        android:id="@android:id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No item to display"
+        android:textSize="28sp"/>
         
-    </ScrollView>
-
+    
 </LinearLayout>

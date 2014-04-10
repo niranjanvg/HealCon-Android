@@ -33,62 +33,50 @@ public final class R {
         public static final int immun_form=0x7f020008;
         public static final int map=0x7f020009;
         public static final int news1=0x7f02000a;
-        public static final int news2=0x7f02000b;
-        public static final int news3=0x7f02000c;
-        public static final int news4=0x7f02000d;
-        public static final int news5=0x7f02000e;
-        public static final int news6=0x7f02000f;
-        public static final int news7=0x7f020010;
-        public static final int news8=0x7f020011;
-        public static final int user=0x7f020012;
+        public static final int user=0x7f02000b;
     }
     public static final class id {
-        public static final int action_settings=0x7f08002d;
+        public static final int action_settings=0x7f080028;
         public static final int addtional_comments=0x7f080007;
-        public static final int button_appointment=0x7f080024;
+        public static final int author=0x7f080027;
+        public static final int button_appointment=0x7f08001c;
         public static final int button_feedback=0x7f08000b;
-        public static final int button_forms=0x7f080027;
+        public static final int button_forms=0x7f08001f;
         public static final int button_history=0x7f08000a;
         public static final int button_immun=0x7f080009;
-        public static final int button_messenger=0x7f080026;
-        public static final int button_news=0x7f080025;
-        public static final int button_news1=0x7f080019;
-        public static final int button_news2=0x7f08001a;
-        public static final int button_news3=0x7f08001b;
-        public static final int button_news4=0x7f08001c;
-        public static final int button_news5=0x7f08001d;
-        public static final int button_news6=0x7f08001e;
-        public static final int button_news7=0x7f08001f;
-        public static final int button_news8=0x7f080020;
-        public static final int button_next=0x7f080023;
+        public static final int button_messenger=0x7f08001e;
+        public static final int button_news=0x7f08001d;
+        public static final int button_next=0x7f08001b;
         public static final int button_submit=0x7f080008;
-        public static final int datepicker=0x7f080021;
-        public static final int department=0x7f08002b;
+        public static final int datepicker=0x7f080019;
+        public static final int department=0x7f080023;
         public static final int feedback=0x7f080006;
         public static final int homescreen=0x7f08000e;
         public static final int homescreen_logo=0x7f08000c;
+        public static final int icon=0x7f080025;
         public static final int imageView1=0x7f080000;
         public static final int mymessage1=0x7f08000f;
         public static final int mymessage2=0x7f080011;
         public static final int mymessage3=0x7f080013;
         public static final int mymessage4=0x7f080015;
-        public static final int name=0x7f08002a;
+        public static final int name=0x7f080022;
+        public static final int news_webview=0x7f080018;
         public static final int radio0=0x7f080002;
         public static final int radio1=0x7f080003;
         public static final int radio2=0x7f080004;
         public static final int radioGroup1=0x7f080001;
         public static final int ratingBar1=0x7f080005;
-        public static final int scroll_news=0x7f080018;
         public static final int search_box=0x7f080017;
-        public static final int showlocation=0x7f080022;
-        public static final int studentid=0x7f08002c;
+        public static final int showlocation=0x7f08001a;
+        public static final int studentid=0x7f080024;
+        public static final int title=0x7f080026;
         public static final int uhsmessage1=0x7f080010;
         public static final int uhsmessage2=0x7f080012;
         public static final int uhsmessage3=0x7f080014;
         public static final int uhsmessage4=0x7f080016;
         public static final int userinfo=0x7f08000d;
-        public static final int view0=0x7f080028;
-        public static final int view1=0x7f080029;
+        public static final int view0=0x7f080020;
+        public static final int view1=0x7f080021;
     }
     public static final class layout {
         public static final int activity_feedback_form=0x7f030000;
@@ -96,14 +84,16 @@ public final class R {
         public static final int activity_main=0x7f030002;
         public static final int activity_messenger=0x7f030003;
         public static final int activity_news=0x7f030004;
-        public static final int activity_schedule=0x7f030005;
-        public static final int fragment_datepicker=0x7f030006;
-        public static final int fragment_homescreen=0x7f030007;
-        public static final int fragment_homescreenlogo=0x7f030008;
-        public static final int fragment_mymessage=0x7f030009;
-        public static final int fragment_showlocation=0x7f03000a;
-        public static final int fragment_uhsmessage=0x7f03000b;
-        public static final int fragment_userinfo=0x7f03000c;
+        public static final int activity_news_web_view=0x7f030005;
+        public static final int activity_schedule=0x7f030006;
+        public static final int fragment_datepicker=0x7f030007;
+        public static final int fragment_homescreen=0x7f030008;
+        public static final int fragment_homescreenlogo=0x7f030009;
+        public static final int fragment_mymessage=0x7f03000a;
+        public static final int fragment_showlocation=0x7f03000b;
+        public static final int fragment_uhsmessage=0x7f03000c;
+        public static final int fragment_userinfo=0x7f03000d;
+        public static final int row_layout=0x7f03000e;
     }
     public static final class menu {
         public static final int feedback_form=0x7f070000;
@@ -111,7 +101,8 @@ public final class R {
         public static final int main=0x7f070002;
         public static final int messenger=0x7f070003;
         public static final int news=0x7f070004;
-        public static final int schedule=0x7f070005;
+        public static final int news_web_view=0x7f070005;
+        public static final int schedule=0x7f070006;
     }
     public static final class string {
         public static final int action_settings=0x7f050002;
@@ -129,6 +120,7 @@ public final class R {
         public static final int title_activity_forms=0x7f050005;
         public static final int title_activity_messenger=0x7f050009;
         public static final int title_activity_news=0x7f050004;
+        public static final int title_activity_news_web_view=0x7f050019;
         public static final int title_activity_schedule=0x7f050003;
         public static final int title_activity_test=0x7f05000b;
         public static final int uhsmessage1=0x7f05000d;

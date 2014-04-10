@@ -8,13 +8,11 @@
     <string name="title_activity_news">H-News</string>
     <string name="title_activity_forms">H-Forms</string>
     <string name="title_activity_feedback_form">Appointment Feedback Form</string>
-
     <string name="healconn">HealConn</string>
     <string name="forcarnegiemellon">for Carnegie Mellon</string>
     <string name="title_activity_messenger">H-Messenger</string>
     <string name="black">#000000</string>
     <string name="title_activity_test">Test</string>
-    
     <string name="usermessage1">Hi there, I would like to know sth about.... Can anyone help me?</string>
     <string name="uhsmessage1">Hi Alex, I can help you out, this usually happens when....</string>
     <string name="usermessage2">Thanks, one more thing....</string>
@@ -23,11 +21,11 @@
     <string name="uhsmessage3">Of Course\! Just use HealConn\'s Appointment on the home panel.</string>
     <string name="usermessage4">Thank you so much\!</string>
     <string name="uhsmessage4">You\'re welcome\!</string>
-    
-    
     <string name="messagetime1">2 days ago</string>
     <string name="messagetime2">yesterday</string>
     <string name="messagetime3">10:00 am</string>
     <string name="messagetime4">3:00 pm</string>
     <string name="messagetime5">just now</string>
+    <string name="title_activity_news_web_view">News Detail</string>
+
 </resources>

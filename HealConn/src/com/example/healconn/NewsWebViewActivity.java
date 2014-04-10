@@ -1,29 +1,32 @@
 package com.example.healconn;
 
 import android.app.Activity;
-import android.app.ActionBar;
-import android.app.Fragment;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
-public class NewsActivity extends Activity {
+public class NewsWebViewActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_news);
+		setContentView(R.layout.activity_news_web_view);		
+		Intent intent = getIntent();
+		Uri newsUri = intent.getData();
+		WebView webView = (WebView) findViewById(R.id.news_webview);
+		webView.setWebViewClient(new WebViewClient());
+		webView.loadUrl(newsUri.toString());
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.news, menu);
+		getMenuInflater().inflate(R.menu.news_web_view, menu);
 		return true;
 	}
 
@@ -38,4 +41,5 @@ public class NewsActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
 }

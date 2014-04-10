@@ -8,6 +8,8 @@
         android:minSdkVersion="14"
         android:targetSdkVersion="19" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -41,6 +43,10 @@
         <activity
             android:name="com.example.healconn.MessengerActivity"
             android:label="@string/title_activity_messenger" >
+        </activity>
+        <activity
+            android:name="com.example.healconn.NewsWebViewActivity"
+            android:label="@string/title_activity_news_web_view" >
         </activity>
     </application>
 
