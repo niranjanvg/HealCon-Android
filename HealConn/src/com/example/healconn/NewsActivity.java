@@ -35,7 +35,19 @@ public class NewsActivity extends ListActivity {
 							 "http://well.blogs.nytimes.com/2014/03/17/study-questions-fat-and-heart-disease-link/",
 							 "http://well.blogs.nytimes.com/2014/03/31/quick-gains-after-a-ban/?_php=true&_type=blogs&_r=0",
 							 "http://well.blogs.nytimes.com/2014/03/31/by-treating-dogs-helping-humans/"};
-				
+	
+    // Array of integers points to images stored in res/drawable folder
+    private int[] thumbnails = new int[]{
+        R.drawable.news1,
+        R.drawable.news2,
+        R.drawable.news3,
+        R.drawable.news4,
+        R.drawable.news5,
+        R.drawable.news6,
+        R.drawable.news7,
+        R.drawable.news8,
+    };
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -45,11 +57,12 @@ public class NewsActivity extends ListActivity {
 			HashMap<String,String> newsTitle = new HashMap<String,String>();
 			newsTitle.put("title", titles[i]);
 			newsTitle.put("author", authors[i]);
+			newsTitle.put("thumbnail", Integer.toString(thumbnails[i]));
 			newsTitles.add(newsTitle);
 		}
-		String keys[] = {"title","author"};
-		int ids[] = {android.R.id.text1, android.R.id.text2};
-		SimpleAdapter adapter = new SimpleAdapter(this, newsTitles, android.R.layout.simple_list_item_2,
+		String keys[] = {"thumbnail", "title","author"};
+		int ids[] = {R.id.thumbnail,R.id.title, R.id.author};
+		SimpleAdapter adapter = new SimpleAdapter(this, newsTitles, R.layout.row_layout,
 												keys, ids);		
 		setListAdapter(adapter);
 	}

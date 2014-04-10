@@ -33,7 +33,14 @@ public final class R {
         public static final int immun_form=0x7f020008;
         public static final int map=0x7f020009;
         public static final int news1=0x7f02000a;
-        public static final int user=0x7f02000b;
+        public static final int news2=0x7f02000b;
+        public static final int news3=0x7f02000c;
+        public static final int news4=0x7f02000d;
+        public static final int news5=0x7f02000e;
+        public static final int news6=0x7f02000f;
+        public static final int news7=0x7f020010;
+        public static final int news8=0x7f020011;
+        public static final int user=0x7f020012;
     }
     public static final class id {
         public static final int action_settings=0x7f080028;
@@ -53,7 +60,6 @@ public final class R {
         public static final int feedback=0x7f080006;
         public static final int homescreen=0x7f08000e;
         public static final int homescreen_logo=0x7f08000c;
-        public static final int icon=0x7f080025;
         public static final int imageView1=0x7f080000;
         public static final int mymessage1=0x7f08000f;
         public static final int mymessage2=0x7f080011;
@@ -69,6 +75,7 @@ public final class R {
         public static final int search_box=0x7f080017;
         public static final int showlocation=0x7f08001a;
         public static final int studentid=0x7f080024;
+        public static final int thumbnail=0x7f080025;
         public static final int title=0x7f080026;
         public static final int uhsmessage1=0x7f080010;
         public static final int uhsmessage2=0x7f080012;
