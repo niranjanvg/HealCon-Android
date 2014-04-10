@@ -27,5 +27,6 @@
     <string name="messagetime4">3:00 pm</string>
     <string name="messagetime5">just now</string>
     <string name="title_activity_news_web_view">News Detail</string>
+    <string name="title_activity_login">LoginActivity</string>
 
 </resources>

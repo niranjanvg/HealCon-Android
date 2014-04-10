@@ -88,28 +88,30 @@ public final class R {
     public static final class layout {
         public static final int activity_feedback_form=0x7f030000;
         public static final int activity_forms=0x7f030001;
-        public static final int activity_main=0x7f030002;
-        public static final int activity_messenger=0x7f030003;
-        public static final int activity_news=0x7f030004;
-        public static final int activity_news_web_view=0x7f030005;
-        public static final int activity_schedule=0x7f030006;
-        public static final int fragment_datepicker=0x7f030007;
-        public static final int fragment_homescreen=0x7f030008;
-        public static final int fragment_homescreenlogo=0x7f030009;
-        public static final int fragment_mymessage=0x7f03000a;
-        public static final int fragment_showlocation=0x7f03000b;
-        public static final int fragment_uhsmessage=0x7f03000c;
-        public static final int fragment_userinfo=0x7f03000d;
-        public static final int row_layout=0x7f03000e;
+        public static final int activity_login=0x7f030002;
+        public static final int activity_main=0x7f030003;
+        public static final int activity_messenger=0x7f030004;
+        public static final int activity_news=0x7f030005;
+        public static final int activity_news_web_view=0x7f030006;
+        public static final int activity_schedule=0x7f030007;
+        public static final int fragment_datepicker=0x7f030008;
+        public static final int fragment_homescreen=0x7f030009;
+        public static final int fragment_homescreenlogo=0x7f03000a;
+        public static final int fragment_mymessage=0x7f03000b;
+        public static final int fragment_showlocation=0x7f03000c;
+        public static final int fragment_uhsmessage=0x7f03000d;
+        public static final int fragment_userinfo=0x7f03000e;
+        public static final int row_layout=0x7f03000f;
     }
     public static final class menu {
         public static final int feedback_form=0x7f070000;
         public static final int forms=0x7f070001;
-        public static final int main=0x7f070002;
-        public static final int messenger=0x7f070003;
-        public static final int news=0x7f070004;
-        public static final int news_web_view=0x7f070005;
-        public static final int schedule=0x7f070006;
+        public static final int login=0x7f070002;
+        public static final int main=0x7f070003;
+        public static final int messenger=0x7f070004;
+        public static final int news=0x7f070005;
+        public static final int news_web_view=0x7f070006;
+        public static final int schedule=0x7f070007;
     }
     public static final class string {
         public static final int action_settings=0x7f050002;
@@ -125,6 +127,7 @@ public final class R {
         public static final int messagetime5=0x7f050018;
         public static final int title_activity_feedback_form=0x7f050006;
         public static final int title_activity_forms=0x7f050005;
+        public static final int title_activity_login=0x7f05001a;
         public static final int title_activity_messenger=0x7f050009;
         public static final int title_activity_news=0x7f050004;
         public static final int title_activity_news_web_view=0x7f050019;

@@ -48,6 +48,10 @@
             android:name="com.example.healconn.NewsWebViewActivity"
             android:label="@string/title_activity_news_web_view" >
         </activity>
+        <activity
+            android:name="com.example.healconn.LoginActivity"
+            android:label="@string/title_activity_login" >
+        </activity>
     </application>
 
 </manifest>
