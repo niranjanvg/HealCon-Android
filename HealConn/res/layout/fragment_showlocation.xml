@@ -7,15 +7,15 @@
     <TextView 
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:text="@string/wheretofindus"
+        android:text="    Where to find us: "
         android:textSize ="24sp"
         android:layout_weight="1"/>
 
-    <fragment
-        android:id="@+id/map"
+    <ImageView
+        android:id="@+id/imageView1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="5"
-        android:name="com.google.android.gms.maps.MapFragment" />
+        android:src="@drawable/map" />
     
 </LinearLayout>

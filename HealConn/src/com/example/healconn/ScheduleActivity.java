@@ -1,35 +1,23 @@
 package com.example.healconn;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
-
 import android.app.Activity;
-
+import android.app.ActionBar;
+import android.app.Fragment;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.os.Build;
 
 public class ScheduleActivity extends Activity {
-	private GoogleMap mMap;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_schedule);
 
-		mMap = ((MapFragment) getFragmentManager()
-                .findFragmentById(R.id.map)).getMap();
-
-        LatLng UHS = new LatLng(40.444987, -79.943503);
-        mMap.setMyLocationEnabled(true);
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(UHS, 17));
-
-        mMap.addMarker(new MarkerOptions()
-                .title("University Health Service Center")
-                .snippet("Carnegie Mellon University UHS")
-                .position(UHS));
 	}
 
 	@Override
