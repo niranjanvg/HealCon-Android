@@ -28,7 +28,6 @@
     <string name="messagetime5">just now</string>
     <string name="title_activity_news_web_view">News Detail</string>
     <string name="title_activity_login">Log-in</string>
-    
     <string name="wheretofindus">Where to find us:</string>
     
     <!-- Nav Drawer Menu Items -->
@@ -52,5 +51,6 @@
      
     <!-- Content Description -->
     <string name="desc_list_item_icon">Item Icon</string>
-    
+    <string name="title_activity_sign_up">SignUpActivity</string>
+
 </resources>

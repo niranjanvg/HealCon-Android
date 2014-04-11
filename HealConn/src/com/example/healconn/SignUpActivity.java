@@ -1,48 +1,29 @@
 package com.example.healconn;
 
 import android.app.Activity;
-import android.content.Intent;
+import android.app.ActionBar;
+import android.app.Fragment;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
+import android.os.Build;
 
-public class LoginActivity extends Activity {
-	
+public class SignUpActivity extends Activity {
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_login);
-		
-		Button btt_login = (Button) findViewById(R.id.button_login);
-		Button btt_signUp = (Button) findViewById(R.id.button_sign_up);
-		btt_login.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(getBaseContext(), MainActivity.class);
-				startActivity(intent);
-			}
-		});
-		
-		btt_signUp.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// Launches the sign up activity
-				Intent intent = new Intent(getBaseContext(), SignUpActivity.class);
-				startActivity(intent);
-			}
-		});
-
+		setContentView(R.layout.activity_sign_up);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.login, menu);
+		getMenuInflater().inflate(R.menu.sign_up, menu);
 		return true;
 	}
 
