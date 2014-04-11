@@ -1,30 +1,35 @@
 package com.example.healconn;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+
+import com.parse.LogInCallback;
+import com.parse.ParseException;
+import com.parse.ParseUser;
 
 public class LoginActivity extends Activity {
+	
+	private EditText username_field;
+	private EditText password_field;
+	private String username;
+	private String password;
+	private Button btt_signUp;
+	private Button btt_login;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 		
-		Button btt_login = (Button) findViewById(R.id.button_login);
-		Button btt_signUp = (Button) findViewById(R.id.button_sign_up);
-		btt_login.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(getBaseContext(), MainActivity.class);
-				startActivity(intent);
-			}
-		});
+		btt_login = (Button) findViewById(R.id.button_login);
+		btt_signUp = (Button) findViewById(R.id.button_sign_up);
 		
 		btt_signUp.setOnClickListener(new View.OnClickListener() {
 			
@@ -33,6 +38,48 @@ public class LoginActivity extends Activity {
 				// Launches the sign up activity
 				Intent intent = new Intent(getBaseContext(), SignUpActivity.class);
 				startActivity(intent);
+			}
+		});
+		
+		btt_login.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				username_field = (EditText) findViewById(R.id.username_field); 
+				password_field = (EditText) findViewById(R.id.password_field);
+				username = username_field.getText().toString();
+				password = password_field.getText().toString();
+				
+				// check for format
+				boolean formatOK = true;
+				if (formatOK) {
+					// Login a new user
+					ParseUser.logInInBackground(username, password, new LogInCallback() {
+						
+						@Override
+						public void done(ParseUser user, ParseException e) {
+							if (e == null) {
+								// login success
+								Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+								intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+								intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+								startActivity(intent);
+							}
+							else {
+								// alert user that the login is unsuccessful
+								AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+								builder.setMessage("Sorry, the information you entered is incorrect, please try again...");
+								builder.setTitle("Oops!");
+								builder.setPositiveButton(android.R.string.ok, null);
+								AlertDialog dialog = builder.create();
+								dialog.show();
+							}
+						}
+					});
+					
+				}
+				
 			}
 		});
 

@@ -18,13 +18,14 @@ public class SignUpActivity extends Activity {
 	private EditText username;
 	private EditText password;
 	private EditText email;
+	private Button btt_signUp;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sign_up);
 		
-		Button btt_signUp = (Button) findViewById(R.id.button_sign_up);
+		btt_signUp = (Button) findViewById(R.id.button_sign_up);
 		btt_signUp.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
