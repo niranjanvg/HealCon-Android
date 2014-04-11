@@ -15,6 +15,11 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+//		Intent intent = new Intent(this, LoginActivity.class);
+//		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//		startActivity(intent);
+		
 		ImageButton bttAppoint = (ImageButton) findViewById(R.id.button_appointment);
 		ImageButton bttNews = (ImageButton) findViewById(R.id.button_news);
 		ImageButton bttMessenger = (ImageButton) findViewById(R.id.button_messenger);
