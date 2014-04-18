@@ -1,23 +1,56 @@
 package com.example.healconn;
 
+import java.util.Calendar;
+
 import android.app.Activity;
-import android.app.ActionBar;
-import android.app.Fragment;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
+import android.widget.DatePicker;
+import android.widget.RatingBar;
+import android.widget.RatingBar.OnRatingBarChangeListener;
+import android.widget.TextView;
 
 public class FeedbackFormActivity extends Activity {
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_feedback_form);
+		setCurrentDateOnView();
+		addListenerOnRatingBar();
 
+	}
+	
+	// display current date
+	public void setCurrentDateOnView() {	
+		
+		DatePicker datePicker = (DatePicker) findViewById(R.id.date_picker);
+	
+		final Calendar c = Calendar.getInstance();	
+		int year = c.get(Calendar.YEAR);
+		int month = c.get(Calendar.MONTH);		
+		int day = c.get(Calendar.DAY_OF_MONTH);
+	
+		// set current date into date picker		
+		datePicker.init(year, month, day, null);
+	 
+	}
+	
+	public void addListenerOnRatingBar() {  		
+		RatingBar ratingBar = (RatingBar) findViewById(R.id.ratingBar_service);
+		
+		// update the rating description text according to user choice
+		ratingBar.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
+			public void onRatingChanged(RatingBar ratingBar, float rating,
+				boolean fromUser) {
+				TextView descrip = (TextView) findViewById(R.id.rating_descrip);
+				String[] feedbacks = {"Extremely poor", "Extremely poor", "Not quite as expected", 
+						"Acceptable", "Very helpful", "Couldn't be any better!"};
+				int index = (int) rating;
+				descrip.setText(feedbacks[index]);		 
+			}
+		});
 	}
 
 	@Override

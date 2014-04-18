@@ -5,10 +5,26 @@
     android:orientation="vertical" >
 
     <View
+        android:layout_width="wrap_content"
+        android:layout_height="20dp">      
+    </View>
+    
+        
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" >
-    </View>
+        android:text="  Date of Appointment? "
+        android:layout_weight="1"
+        android:textSize="28sp" >
+   	</TextView>
+
+    <DatePicker
+        android:id="@+id/date_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:calendarViewShown="false"
+        android:paddingLeft="20dp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -20,7 +36,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4"
+        android:layout_weight="5"
         android:orientation="vertical" >
         
         
@@ -35,10 +51,10 @@
         	</View>
             
             <ImageView
-		        android:id="@+id/imageView1"
+		        android:id="@+id/image_doctor1"
 		        android:layout_width="160dp"
 		        android:layout_height="150dp"
-		        android:src="@drawable/user"
+		        android:src="@drawable/doctor_mary"
 		        android:layout_gravity="center" />
             
             <View
@@ -47,10 +63,10 @@
         	</View>
             
             <ImageView
-		        android:id="@+id/imageView1"
+		        android:id="@+id/image_doctor2"
 		        android:layout_width="160dp"
 		        android:layout_height="150dp"
-		        android:src="@drawable/user"
+		        android:src="@drawable/doctor_peter"
 		        android:layout_gravity="center" />
             
             <View
@@ -59,10 +75,10 @@
         	</View>            
             
             <ImageView
-		        android:id="@+id/imageView1"
+		        android:id="@+id/image_doctor3"
 		        android:layout_width="160dp"
 		        android:layout_height="150dp"
-		        android:src="@drawable/user"
+		        android:src="@drawable/doctor_bob"
 		        android:layout_gravity="center" />
                         
         </LinearLayout>
@@ -127,6 +143,11 @@
 
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp" >
+    </View>
+    
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -137,14 +158,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4"
+        android:layout_weight="3"
         android:orientation="vertical" >
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="  (Hint: 5 star means extremely satisfied) "
-            android:textSize="24sp" />
 
         <View
             android:layout_width="match_parent"
@@ -152,17 +167,17 @@
         </View>
 
         <RatingBar
-            android:id="@+id/ratingBar1"
+            android:id="@+id/ratingBar_service"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center" />
 
         <TextView
-            android:id="@+id/feedback"
+            android:id="@+id/rating_descrip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Very satisfied"
+            android:text="(rate by pressing on the rating bar)"
             android:textSize="24sp" />
     </LinearLayout>
 
