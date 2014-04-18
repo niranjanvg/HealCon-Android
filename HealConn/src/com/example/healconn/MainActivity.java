@@ -3,38 +3,37 @@ package com.example.healconn;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.parse.ParseAnalytics;
+import com.parse.ParseUser;
+
 public class MainActivity extends Activity {
 
+	public static final String TAG = MainActivity.class.getSimpleName();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-//		Intent intent = new Intent(this, LoginActivity.class);
-//		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//		startActivity(intent);
+		ParseAnalytics.trackAppOpened(getIntent());
 		
+		ParseUser currentUser = ParseUser.getCurrentUser();
+		if (currentUser == null) {
+			navigateToLogin();
+		}
+		else {
+			Log.i(TAG, currentUser.getUsername());
+		}
+				
 		ImageButton bttAppoint = (ImageButton) findViewById(R.id.button_appointment);
 		ImageButton bttNews = (ImageButton) findViewById(R.id.button_news);
 		ImageButton bttMessenger = (ImageButton) findViewById(R.id.button_messenger);
 		ImageButton bttForms = (ImageButton) findViewById(R.id.button_forms);
-		
-		// Setup listeners for the buttons
-		bttAppoint.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// Launch the appointment scheduling activity
-				Intent intent = new Intent(getBaseContext(), ScheduleActivity.class);
-				startActivity(intent);
-			}
-		});	
 		
 		// Listener for button Appointment
 		bttAppoint.setOnClickListener(new View.OnClickListener() {
@@ -80,6 +79,13 @@ public class MainActivity extends Activity {
 		});
 	}
 
+	private void navigateToLogin() {
+		Intent intent = new Intent(this, LoginActivity.class);
+		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+		startActivity(intent);
+	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -94,8 +100,9 @@ public class MainActivity extends Activity {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
+		if (id == R.id.action_logout) {
+			ParseUser.logOut();
+			navigateToLogin();
 		}
 		return super.onOptionsItemSelected(item);
 	}
