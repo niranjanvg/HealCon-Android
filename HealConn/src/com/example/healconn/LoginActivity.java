@@ -7,11 +7,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseUser;
 
 public class LoginActivity extends Activity {
@@ -26,6 +28,7 @@ public class LoginActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		setContentView(R.layout.activity_login);
 		
 		btt_login = (Button) findViewById(R.id.button_login);
@@ -55,15 +58,35 @@ public class LoginActivity extends Activity {
 				boolean formatOK = true;
 				if (formatOK) {
 					// Login a new user
+					setProgressBarIndeterminateVisibility(true);
 					ParseUser.logInInBackground(username, password, new LogInCallback() {
 						
 						@Override
 						public void done(ParseUser user, ParseException e) {
+							setProgressBarIndeterminateVisibility(false);
 							if (e == null) {
 								// login success
 								Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 								intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 								intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+								
+								String name = (String) user.get("name");
+								String department = (String) user.get("department");
+								String studentID = (String) user.get("studentID");
+								ParseFile profilePic = user.getParseFile("userPic");
+								byte[] imgBytes = null;
+								try {
+									imgBytes = profilePic.getData();
+								} catch (ParseException e1) {
+									e1.printStackTrace();
+								}
+								if (imgBytes != null) {
+									intent.putExtra("userPic", imgBytes);
+								}
+								intent.putExtra("name", name);
+								intent.putExtra("department", department);
+								intent.putExtra("studentID", studentID);
+								
 								startActivity(intent);
 							}
 							else {

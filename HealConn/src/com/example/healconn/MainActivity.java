@@ -1,13 +1,20 @@
 package com.example.healconn;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.parse.ParseAnalytics;
 import com.parse.ParseUser;
@@ -29,7 +36,10 @@ public class MainActivity extends Activity {
 		else {
 			Log.i(TAG, currentUser.getUsername());
 		}
-				
+		
+		// display name, department, studentID, profile picture
+		displayUser();
+		
 		ImageButton bttAppoint = (ImageButton) findViewById(R.id.button_appointment);
 		ImageButton bttNews = (ImageButton) findViewById(R.id.button_news);
 		ImageButton bttMessenger = (ImageButton) findViewById(R.id.button_messenger);
@@ -77,6 +87,29 @@ public class MainActivity extends Activity {
 				startActivity(intent);
 			}
 		});
+	}
+
+	// displays the right user information
+	@SuppressLint("NewApi")
+	private void displayUser() {
+		// display name, department, studentID
+		Intent intent = getIntent();
+		String name = intent.getExtras().getString("name");
+		String department = intent.getExtras().getString("department");
+		String studentID = intent.getExtras().getString("studentID");
+		TextView nameText = (TextView) findViewById(R.id.name);
+		TextView depText = (TextView) findViewById(R.id.department);
+		TextView idText = (TextView) findViewById(R.id.studentid);
+		nameText.setText(name);
+		depText.setText(department);
+		idText.setText(studentID);
+		
+		// display user profile picture
+		byte[] imgBytes = intent.getByteArrayExtra("userPic");
+		Bitmap bmp = BitmapFactory.decodeByteArray(imgBytes, 0, imgBytes.length);
+		Drawable drawable =new BitmapDrawable(getResources(), bmp);
+		ImageView user = (ImageView) findViewById(R.id.user);
+		user.setImageDrawable(drawable);
 	}
 
 	private void navigateToLogin() {

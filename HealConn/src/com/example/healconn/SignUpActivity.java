@@ -1,15 +1,23 @@
 package com.example.healconn;
 
+import java.io.ByteArrayOutputStream;
+
 import android.app.Activity;
-import android.content.Intent;
+import android.app.AlertDialog;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
@@ -42,15 +50,43 @@ public class SignUpActivity extends Activity {
 					newUser.setUsername(username.getText().toString());
 					newUser.setPassword(password.getText().toString());
 					newUser.setEmail(email.getText().toString());
+					
+					String name = "Yijie Ma";
+					String department = "ECE";
+					String studentID = "810767017";
+					newUser.put("name", name);
+					newUser.put("department", department);
+					newUser.put("studentID", studentID);
+					
+					Drawable drawable = getResources().getDrawable(R.drawable.user_pic);
+					Bitmap bitmap = (Bitmap) ((BitmapDrawable) drawable).getBitmap();
+					ByteArrayOutputStream stream = new ByteArrayOutputStream();
+					bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+					byte[] imgBytes = stream.toByteArray();
+
+					if (imgBytes != null) {
+						ParseFile userPic = new ParseFile("userPic.png", imgBytes);
+						try {
+							userPic.save();
+						} catch (ParseException e1) {
+							e1.printStackTrace();
+						}
+						newUser.put("userPic", userPic);
+						Toast.makeText(getBaseContext(), "Pic uploaded to parse", Toast.LENGTH_LONG).show();
+					}
+						
 					newUser.signUpInBackground(new SignUpCallback() {
 						@Override
 						public void done(ParseException e) {
 							if (e == null) {
 								// Success
-								Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
-								intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-								intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-								startActivity(intent);
+								// alert user that the login is unsuccessful
+								AlertDialog.Builder builder = new AlertDialog.Builder(SignUpActivity.this);
+								builder.setMessage("Successfully signed up one new user! ");
+								builder.setTitle("Congratulations!");
+								builder.setPositiveButton(android.R.string.ok, null);
+								AlertDialog dialog = builder.create();
+								dialog.show();
 							}
 							else {
 								// Display Error Message via Dialog
