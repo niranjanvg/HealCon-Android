@@ -35,35 +35,43 @@
 
         <activity
             android:name="com.example.healconn.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.example.healconn.ScheduleActivity"
-            android:label="@string/title_activity_schedule" >
+            android:label="@string/title_activity_schedule"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.example.healconn.NewsActivity"
-            android:label="@string/title_activity_news" >
+            android:label="@string/title_activity_news"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.example.healconn.FormsActivity"
-            android:label="@string/title_activity_forms" >
+            android:label="@string/title_activity_forms"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.example.healconn.FeedbackFormActivity"
-            android:label="@string/title_activity_feedback_form" >
+            android:label="@string/title_activity_feedback_form"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.example.healconn.MessengerActivity"
-            android:label="@string/title_activity_messenger" >
+            android:label="@string/title_activity_messenger"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.example.healconn.NewsWebViewActivity"
-            android:label="@string/title_activity_news_web_view" >
+            android:label="@string/title_activity_news_web_view"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.example.healconn.LoginActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -77,7 +85,8 @@
 
         <activity
             android:name="com.example.healconn.SignUpActivity"
-            android:label="@string/title_activity_sign_up" >
+            android:label="@string/title_activity_sign_up"
+            android:screenOrientation="portrait" >
         </activity>
     </application>
 

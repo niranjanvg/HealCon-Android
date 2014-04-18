@@ -100,9 +100,9 @@ public class MainActivity extends Activity {
 		TextView nameText = (TextView) findViewById(R.id.name);
 		TextView depText = (TextView) findViewById(R.id.department);
 		TextView idText = (TextView) findViewById(R.id.studentid);
-		nameText.setText(name);
-		depText.setText(department);
-		idText.setText(studentID);
+		nameText.setText("Name: " + name);
+		depText.setText("Department: " + department);
+		idText.setText("ID: " + studentID);
 		
 		// display user profile picture
 		byte[] imgBytes = intent.getByteArrayExtra("userPic");
