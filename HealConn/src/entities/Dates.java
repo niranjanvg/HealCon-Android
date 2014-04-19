@@ -7,7 +7,7 @@ import com.parse.ParseObject;
  * Dates form in Parse should have following features:
  * 		
  * 		DateID
- * 		Dates
+ * 		Date
  * 		Availability
  * 		DoctorName
  */
@@ -19,10 +19,10 @@ public class Dates extends ParseObject {
     }
     
     public void setDates(String date){
-    	put("Dates", date);
+    	put("Date", date);
     }
     
-    public void setAvailability(String availability){
+    public void setAvailability(Boolean availability){
     	put("Availability", availability);
     }
     
