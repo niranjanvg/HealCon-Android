@@ -55,5 +55,6 @@
     <string name="menu_logout_label">Logout</string>
     <string name="pickUpDate">Pick your appointment date:</string>
     <string name="nextButton">Next</string>
+    <string name="back">BACK</string>
 
 </resources>
