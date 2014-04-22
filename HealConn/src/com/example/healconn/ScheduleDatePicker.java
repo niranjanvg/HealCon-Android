@@ -2,36 +2,37 @@ package com.example.healconn;
 
 import java.util.List;
 
-import android.R.drawable;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
-import android.graphics.drawable.Drawable;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.CalendarView.OnDateChangeListener;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
-import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
 public class ScheduleDatePicker extends Fragment {
 	// public variable, will be used by ScheduleDateConfirm Class
 	public static String selectedDatePublic; 
+	public static ParseFile doctorPic;
 	
 	private TextView datePickerText;
 	private LinearLayout calendarLayout;
@@ -44,6 +45,7 @@ public class ScheduleDatePicker extends Fragment {
 	private final int blue = 0xff0000ff;
 	private static final String TAG = "ScheduleActivity";
 	private List<ParseObject> datesObjects;
+	private boolean dateValid = false;
     
 	/* manually set radio button id */
 	private static final int RB_9_11  = 911;
@@ -115,11 +117,17 @@ public class ScheduleDatePicker extends Fragment {
 					        		 if(objects.get(i).getString("Date").equals(selectedDate)){
 					        			 // match success
 					        			 notFound = false;
+					        			 // retrieve doctor picture
+					        			 ParseObject date = datesObjects.get(i);
+					        			 doctorPic = date.getParseFile("DoctorPhoto");
+					        			 // valid date in the database
+					        			 dateValid = true;
 					        			 alertMatchSuccess(objects.get(i));
 					        		 }
 					        	 }
 					        	 if(notFound){
 					        		 // match unsuccess
+					        		 dateValid = false;
 					        		 alertMatchUnsuccess();
 					        	 }
 					         }else{
@@ -137,11 +145,16 @@ public class ScheduleDatePicker extends Fragment {
 		        		 if(datesObjects.get(i).getString("Date").equals(selectedDate)){
 		        			 // match success
 		        			 notFound = false;
+		        			 // retrieve doctor picture
+		        			 ParseObject date = datesObjects.get(i);
+		        			 doctorPic = date.getParseFile("DoctorPhoto");
+		        			 dateValid = true;
 		        			 alertMatchSuccess(datesObjects.get(i));
 		        		 }
 		        	 }
 		        	 if(notFound){
 		        		 // match unsuccess
+		        		 dateValid = false;
 		        		 alertMatchUnsuccess();
 		        	 }
 				}
@@ -149,17 +162,29 @@ public class ScheduleDatePicker extends Fragment {
 	    });
 	    
 	    /* next button click listener */
-	    Button nextButton = (Button) getActivity().findViewById(R.id.button_next);
-        nextButton.setOnClickListener(new OnClickListener() {		
+	    Button confirmButton = (Button) getActivity().findViewById(R.id.button_confirm);
+        confirmButton.setOnClickListener(new OnClickListener() {		
 			@Override
 			public void onClick(View v) {
-				FragmentTransaction fragmentTransaction = ScheduleActivity._fragmentManager
-						.beginTransaction();
-				fragmentTransaction.replace(R.id.appointment_fragment_container, 
-						      new ScheduleDateConfirm());
-				fragmentTransaction.addToBackStack(null);
-				fragmentTransaction.commit();
-				ScheduleActivity._fragmentManager.executePendingTransactions();
+				// if user has selected a valid date
+				if (dateValid == true) {
+					FragmentTransaction fragmentTransaction = ScheduleActivity._fragmentManager
+							.beginTransaction();
+					fragmentTransaction.replace(R.id.appointment_fragment_container, 
+							      new ScheduleDateConfirm());
+					fragmentTransaction.addToBackStack(null);
+					fragmentTransaction.commit();
+					ScheduleActivity._fragmentManager.executePendingTransactions();
+				}
+				else {
+					// if user has not selected a valid date, pop up a dialog to remind user
+					AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+					builder.setMessage("You have not selected a date yet, try again!");
+					builder.setTitle("Oops!");
+					builder.setPositiveButton(android.R.string.ok, null);
+					AlertDialog dialog = builder.create();
+					dialog.show();
+				}
 			}
 		});
 	}
@@ -237,6 +262,10 @@ public class ScheduleDatePicker extends Fragment {
 		builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
+				
+				// format the output display
+				selectedDate = formatDateString(selectedDate);
+				
 			    // if alert dialog button is clicked, 
 				// check whether radio button is selected or not
 				switch (radioGroupAlert.getCheckedRadioButtonId()) {
@@ -245,27 +274,31 @@ public class ScheduleDatePicker extends Fragment {
 						break;
 					case 911:
 						// 9 to 11 is selected
-						selectedDatePublic = "Your chosen time is " + selectedDate +
-											 ": 9am --- 11am.    Press NEXT to confirm!";
+						selectedDatePublic = "Your chosen time is:    " + 
+										"9am --- 11am" + ", " + selectedDate;
 						datePickerText.setText(selectedDatePublic);
+						datePickerText.setTypeface(null, Typeface.BOLD);
 						break;
 					case 1113:
 						// 11 to 13 is selected
-						selectedDatePublic = "Your chosen time is " + selectedDate +
-						 					 ": 11am --- 1pm.    Press NEXT to confirm!";
+						selectedDatePublic = "Your chosen time is:    " + 
+										"11am --- 1pm" + ", " + selectedDate;
 						datePickerText.setText(selectedDatePublic);
+						datePickerText.setTypeface(null, Typeface.BOLD);
 						break;
 					case 1315:
 						// 13 to 15 is selected
-						selectedDatePublic = "Your chosen time is " + selectedDate +
-						 					 ": 1pm --- 3pm.    Press NEXT to confirm!";
+						selectedDatePublic = "Your chosen time is:    " + 
+										"1pm --- 3pm" + ", " + selectedDate;
 						datePickerText.setText(selectedDatePublic);
+						datePickerText.setTypeface(null, Typeface.BOLD);
 						break;
 					case 1517:
 						// 15 to 17 is selected
-						selectedDatePublic = "Your chosen time is " + selectedDate +
-						 					 ": 3pm --- 5pm.    Press NEXT to confirm!";
+						selectedDatePublic = "Your chosen time is:    " + 
+										"3pm --- 5pm" + ", " +selectedDate;
 						datePickerText.setText(selectedDatePublic);
+						datePickerText.setTypeface(null, Typeface.BOLD);
 						break;
 					default:
 						break;
@@ -274,5 +307,41 @@ public class ScheduleDatePicker extends Fragment {
 		});
 		AlertDialog dialog = builder.create();
 		dialog.show();
+	}
+
+	// format the date confirmation string thats displayed on top of the screen
+	protected String formatDateString(String selectedDate) {
+		
+		String formatted = "";
+		int year, month, day; 
+		year = Integer.parseInt(selectedDate.substring(0,4));
+		// how many digits for month?
+		if (selectedDate.substring(6,7).equals(":")) {
+			month = Integer.parseInt(selectedDate.substring(5,6));
+			day = Integer.parseInt(selectedDate.substring(7));
+		}
+		else {
+			month = Integer.parseInt(selectedDate.substring(5,7));
+			day = Integer.parseInt(selectedDate.substring(8));
+		}
+		
+		switch(month) {
+			case 1: formatted += "Jan";break;
+			case 2: formatted += "Feb";break;
+			case 3: formatted += "Mar";break;
+			case 4: formatted += "Apr";break;
+			case 5: formatted += "May";break;
+			case 6: formatted += "Jun";break;
+			case 7: formatted += "Jul";break;
+			case 8: formatted += "Aug";break;
+			case 9: formatted += "Sep";break;
+			case 10: formatted += "Oct";break;
+			case 11: formatted += "Nov";break;
+			case 12: formatted += "Dec";break;
+		}
+		
+		formatted += "  " + day + ", " + year;
+		
+		return formatted;
 	}
 }

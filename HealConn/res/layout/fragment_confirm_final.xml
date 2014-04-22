@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Congratulations, your following appointment has been successfully confirmed!"
+        android:textSize="28sp"
+        android:paddingBottom="100dp"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Your Doctor: "
+            android:textSize="24sp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"/>
+        
+        
+        <ImageView
+	        android:id="@+id/scheduled_doctor"
+	        android:layout_width="198dp"
+	        android:layout_height="171dp"
+	        android:src="@drawable/user"/>
+        
+        
+        
+    </LinearLayout>
+        
+    
+</LinearLayout>

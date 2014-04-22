@@ -4,15 +4,60 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
+        
 	<TextView
-	    android:id="@+id/dateConfirmText"
+		android:id="@+id/dateConfirmText"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textSize="24sp"
+		android:paddingBottom="40dp"/>
+
+	<Button 
+	    android:id="@+id/dataConfirmBack"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
-	    />
-    <Button 
-        android:id="@+id/dataConfirmBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/back"/>
-    
+	    android:layout_gravity="center"
+	    android:text="Back to choose a different date"/>
+	
+	<TextView
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:text="Would you like to fill out a pre-appointment survey form?"
+	    android:textStyle="bold"
+	    android:textSize="24sp"
+	    android:paddingTop="70dp"
+	    android:paddingBottom="40dp"/>
+	
+	
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal">
+	    
+	    <View
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="2"/>
+	    
+	    <Button
+	        android:id="@+id/button_survey_yes"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="2"
+	        android:text="Yes"/>
+	    
+	    <Button
+	        android:id="@+id/button_survey_no"
+	        android:layout_width="100dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="2"
+	        android:text="No thanks"/>
+	    
+	    <View
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="2"/>
+	            
+	</LinearLayout>
+	 
 </LinearLayout>

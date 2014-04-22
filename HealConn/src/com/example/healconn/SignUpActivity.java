@@ -50,30 +50,6 @@ public class SignUpActivity extends Activity {
 					newUser.setUsername(username.getText().toString());
 					newUser.setPassword(password.getText().toString());
 					newUser.setEmail(email.getText().toString());
-					
-					String name = "Yijie Ma";
-					String department = "ECE";
-					String studentID = "810767017";
-					newUser.put("name", name);
-					newUser.put("department", department);
-					newUser.put("studentID", studentID);
-					
-					Drawable drawable = getResources().getDrawable(R.drawable.user_pic);
-					Bitmap bitmap = (Bitmap) ((BitmapDrawable) drawable).getBitmap();
-					ByteArrayOutputStream stream = new ByteArrayOutputStream();
-					bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-					byte[] imgBytes = stream.toByteArray();
-
-					if (imgBytes != null) {
-						ParseFile userPic = new ParseFile("userPic.png", imgBytes);
-						try {
-							userPic.save();
-						} catch (ParseException e1) {
-							e1.printStackTrace();
-						}
-						newUser.put("userPic", userPic);
-						Toast.makeText(getBaseContext(), "Pic uploaded to parse", Toast.LENGTH_LONG).show();
-					}
 						
 					newUser.signUpInBackground(new SignUpCallback() {
 						@Override
