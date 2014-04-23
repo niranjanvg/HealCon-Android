@@ -29,6 +29,8 @@
     <string name="title_activity_news_web_view">News Detail</string>
     <string name="title_activity_login">Log-in</string>
     <string name="wheretofindus">Where to find us:</string>
+    <string name="drawer_open">Slider Menu Opened</string>
+    <string name="drawer_close">Slider Menu Closed</string>
     
     <!-- Nav Drawer Menu Items -->
     <string-array name="nav_drawer_items">
@@ -43,14 +45,15 @@
     <!-- Keep them in order as the titles are in -->
     <array name="nav_drawer_icons">
         <item>@drawable/ic_launcher</item>
-        <item>@drawable/appointment_wo_text</item>
-        <item>@drawable/h_news_wo_text</item>
-        <item>@drawable/h_messenger_wo_text</item>
-        <item>@drawable/form_wo_text</item>
+        <item>@drawable/appointment2</item>
+        <item>@drawable/h_news2</item>
+        <item>@drawable/h_messenger2</item>
+        <item>@drawable/h_forms2</item>
     </array>
      
     <!-- Content Description -->
     <string name="desc_list_item_icon">Item Icon</string>
+    
     <string name="title_activity_sign_up">Sign-Up</string>
     <string name="menu_logout_label">Logout</string>
     <string name="pickUpDate">Pick your appointment date:</string>

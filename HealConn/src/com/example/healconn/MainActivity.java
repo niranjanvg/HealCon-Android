@@ -20,6 +20,12 @@ import com.parse.ParseAnalytics;
 import com.parse.ParseUser;
 
 public class MainActivity extends Activity {
+	
+	// private instance variables
+	private String name;
+	private String department;
+	private String studentID;
+	private byte[] imgBytes;
 
 	public static final String TAG = MainActivity.class.getSimpleName();
 	@Override
@@ -38,7 +44,11 @@ public class MainActivity extends Activity {
 		}
 		
 		// display name, department, studentID, profile picture
-		displayUser();
+		if (getIntent().getExtras() != null)
+			displayUser();
+		else {
+			displayKnownUser();
+		}
 		
 		ImageButton bttAppoint = (ImageButton) findViewById(R.id.button_appointment);
 		ImageButton bttNews = (ImageButton) findViewById(R.id.button_news);
@@ -88,15 +98,30 @@ public class MainActivity extends Activity {
 			}
 		});
 	}
+    
+	// displays an already known user
+	private void displayKnownUser() {
+		TextView nameText = (TextView) findViewById(R.id.name);
+		TextView depText = (TextView) findViewById(R.id.department);
+		TextView idText = (TextView) findViewById(R.id.studentid);
+		nameText.setText("Name: " + name);
+		depText.setText("Department: " + department);
+		idText.setText("ID: " + studentID);
+		// display pic
+		Bitmap bmp = BitmapFactory.decodeByteArray(imgBytes, 0, imgBytes.length);
+		Drawable drawable =new BitmapDrawable(getResources(), bmp);
+		ImageView user = (ImageView) findViewById(R.id.user);
+		user.setImageDrawable(drawable);
+	}
 
 	// displays the right user information
 	@SuppressLint("NewApi")
 	private void displayUser() {
 		// display name, department, studentID
 		Intent intent = getIntent();
-		String name = intent.getExtras().getString("name");
-		String department = intent.getExtras().getString("department");
-		String studentID = intent.getExtras().getString("studentID");
+		name = intent.getExtras().getString("name");
+		department = intent.getExtras().getString("department");
+		studentID = intent.getExtras().getString("studentID");
 		TextView nameText = (TextView) findViewById(R.id.name);
 		TextView depText = (TextView) findViewById(R.id.department);
 		TextView idText = (TextView) findViewById(R.id.studentid);
@@ -105,7 +130,7 @@ public class MainActivity extends Activity {
 		idText.setText("ID: " + studentID);
 		
 		// display user profile picture
-		byte[] imgBytes = intent.getByteArrayExtra("userPic");
+		imgBytes = intent.getByteArrayExtra("userPic");
 		Bitmap bmp = BitmapFactory.decodeByteArray(imgBytes, 0, imgBytes.length);
 		Drawable drawable =new BitmapDrawable(getResources(), bmp);
 		ImageView user = (ImageView) findViewById(R.id.user);
