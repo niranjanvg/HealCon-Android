@@ -4,12 +4,7 @@
     android:layout_height="match_parent"
     android:baselineAligned="false"
     android:orientation="vertical" >
-    
-    <View 
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.1"/>
-    
+       
     <FrameLayout
         android:id="@+id/appointment_fragment_container"
         android:layout_width="match_parent"

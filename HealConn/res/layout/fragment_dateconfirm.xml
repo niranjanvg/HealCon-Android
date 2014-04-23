@@ -23,7 +23,6 @@
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:text="Would you like to fill out a pre-appointment survey form?"
-	    android:textStyle="bold"
 	    android:textSize="24sp"
 	    android:paddingTop="70dp"
 	    android:paddingBottom="40dp"/>

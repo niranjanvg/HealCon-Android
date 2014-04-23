@@ -6,10 +6,12 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.parse.ParseUser;
 
 public class ScheduleDateConfirm extends Fragment{
 	@Override
@@ -23,7 +25,6 @@ public class ScheduleDateConfirm extends Fragment{
 		
 		TextView dateConfirmText = (TextView) getActivity().findViewById(R.id.dateConfirmText);
 		dateConfirmText.setText(ScheduleDatePicker.selectedDatePublic);
-		dateConfirmText.setTypeface(null, Typeface.BOLD);
 	    
 		/* back button click listener */
 	    Button backButton = (Button) getActivity().findViewById(R.id.dataConfirmBack);
@@ -54,6 +55,24 @@ public class ScheduleDateConfirm extends Fragment{
 				fragmentTransaction.addToBackStack(null);
 				fragmentTransaction.commit();
 				ScheduleActivity._fragmentManager.executePendingTransactions();			
+			}
+		});
+        
+        // listener for button "Yes"
+        Button surveyPositive = (Button) getActivity().findViewById(R.id.button_survey_yes);
+        surveyPositive.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// when user clicks on the "yes" button, switch in the survey fragment
+				FragmentTransaction fragmentTransaction = ScheduleActivity._fragmentManager
+						.beginTransaction();
+				fragmentTransaction.replace(R.id.appointment_fragment_container, 
+						      new ScheduleSurveyForm());
+				fragmentTransaction.addToBackStack(null);
+				fragmentTransaction.commit();
+				ScheduleActivity._fragmentManager.executePendingTransactions();	
+				
 			}
 		});
 	}

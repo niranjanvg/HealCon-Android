@@ -33,6 +33,7 @@ public class ScheduleDatePicker extends Fragment {
 	// public variable, will be used by ScheduleDateConfirm Class
 	public static String selectedDatePublic; 
 	public static ParseFile doctorPic;
+	public static String doctorName;
 	
 	private TextView datePickerText;
 	private LinearLayout calendarLayout;
@@ -120,6 +121,8 @@ public class ScheduleDatePicker extends Fragment {
 					        			 // retrieve doctor picture
 					        			 ParseObject date = datesObjects.get(i);
 					        			 doctorPic = date.getParseFile("DoctorPhoto");
+					        			 // retrieve doctor name
+					        			 doctorName = (String) date.get("DoctorName");
 					        			 // valid date in the database
 					        			 dateValid = true;
 					        			 alertMatchSuccess(objects.get(i));
@@ -148,6 +151,8 @@ public class ScheduleDatePicker extends Fragment {
 		        			 // retrieve doctor picture
 		        			 ParseObject date = datesObjects.get(i);
 		        			 doctorPic = date.getParseFile("DoctorPhoto");
+		        			 // retrieve doctor name
+		        			 doctorName = (String) date.get("DoctorName");
 		        			 dateValid = true;
 		        			 alertMatchSuccess(datesObjects.get(i));
 		        		 }

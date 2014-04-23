@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -28,6 +29,15 @@ public class ScheduleFinalConfirm extends Fragment {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		doctorPic = ScheduleDatePicker.doctorPic;
+		String confirmText = ScheduleDatePicker.selectedDatePublic;
+		// set confirm text
+		TextView confirm = (TextView) getActivity().findViewById(R.id.confirm_date_text);
+		confirm.setText(confirmText);
+		// set doctor name
+		TextView doctorLabelText = (TextView) getActivity().findViewById(R.id.doctor_label);
+		String text = doctorLabelText.getText().toString();
+		text = text + "  " + ScheduleDatePicker.doctorName;
+		doctorLabelText.setText(text);
 		// convert to byte array
 		byte[] imgBytes = null;
 		try {
