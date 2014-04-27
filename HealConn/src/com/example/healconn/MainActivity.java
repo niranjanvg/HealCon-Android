@@ -22,10 +22,10 @@ import com.parse.ParseUser;
 public class MainActivity extends Activity {
 	
 	// private instance variables
-	private String name;
-	private String department;
-	private String studentID;
-	private byte[] imgBytes;
+	private static String name;
+	private static String department;
+	private static String studentID;
+	private static byte[] imgBytes;
 
 	public static final String TAG = MainActivity.class.getSimpleName();
 	@Override
@@ -107,7 +107,7 @@ public class MainActivity extends Activity {
 		nameText.setText("Name: " + name);
 		depText.setText("Department: " + department);
 		idText.setText("ID: " + studentID);
-		// display pic
+		// display profile pic		
 		Bitmap bmp = BitmapFactory.decodeByteArray(imgBytes, 0, imgBytes.length);
 		Drawable drawable =new BitmapDrawable(getResources(), bmp);
 		ImageView user = (ImageView) findViewById(R.id.user);

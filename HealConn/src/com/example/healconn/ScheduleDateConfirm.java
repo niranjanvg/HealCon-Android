@@ -31,13 +31,12 @@ public class ScheduleDateConfirm extends Fragment{
         backButton.setOnClickListener(new OnClickListener() {		
 			@Override
 			public void onClick(View v) {
-				FragmentTransaction fragmentTransaction = ScheduleActivity._fragmentManager
+				FragmentTransaction fragmentTransaction = getFragmentManager()
 						.beginTransaction();
 				fragmentTransaction.replace(R.id.appointment_fragment_container, 
 						      new ScheduleDatePicker());
 				fragmentTransaction.addToBackStack(null);
 				fragmentTransaction.commit();
-				ScheduleActivity._fragmentManager.executePendingTransactions();
 			}
 		});
         
@@ -48,13 +47,12 @@ public class ScheduleDateConfirm extends Fragment{
 			@Override
 			public void onClick(View v) {
 				// replace with confirmation fragment
-				FragmentTransaction fragmentTransaction = ScheduleActivity._fragmentManager
+				FragmentTransaction fragmentTransaction = getFragmentManager()
 						.beginTransaction();
 				fragmentTransaction.replace(R.id.appointment_fragment_container, 
 						      new ScheduleFinalConfirm());
 				fragmentTransaction.addToBackStack(null);
-				fragmentTransaction.commit();
-				ScheduleActivity._fragmentManager.executePendingTransactions();			
+				fragmentTransaction.commit();		
 			}
 		});
         
@@ -65,13 +63,12 @@ public class ScheduleDateConfirm extends Fragment{
 			@Override
 			public void onClick(View v) {
 				// when user clicks on the "yes" button, switch in the survey fragment
-				FragmentTransaction fragmentTransaction = ScheduleActivity._fragmentManager
+				FragmentTransaction fragmentTransaction = getFragmentManager()
 						.beginTransaction();
 				fragmentTransaction.replace(R.id.appointment_fragment_container, 
 						      new ScheduleSurveyForm());
 				fragmentTransaction.addToBackStack(null);
 				fragmentTransaction.commit();
-				ScheduleActivity._fragmentManager.executePendingTransactions();	
 				
 			}
 		});

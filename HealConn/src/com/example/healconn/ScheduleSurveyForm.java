@@ -26,13 +26,12 @@ public class ScheduleSurveyForm extends Fragment {
 			@Override
 			public void onClick(View v) {
 				// when user clicks on submit, switch in the confirm fragment
-				FragmentTransaction fragmentTransaction = ScheduleActivity._fragmentManager
+				FragmentTransaction fragmentTransaction = getFragmentManager()
 						.beginTransaction();
 				fragmentTransaction.replace(R.id.appointment_fragment_container, 
 						      new ScheduleFinalConfirm());
 				fragmentTransaction.addToBackStack(null);
-				fragmentTransaction.commit();
-				ScheduleActivity._fragmentManager.executePendingTransactions();			
+				fragmentTransaction.commit();		
 			}
 		});
 	}

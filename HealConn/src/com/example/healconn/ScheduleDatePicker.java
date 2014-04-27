@@ -173,13 +173,12 @@ public class ScheduleDatePicker extends Fragment {
 			public void onClick(View v) {
 				// if user has selected a valid date
 				if (dateValid == true) {
-					FragmentTransaction fragmentTransaction = ScheduleActivity._fragmentManager
+					FragmentTransaction fragmentTransaction = getFragmentManager()
 							.beginTransaction();
 					fragmentTransaction.replace(R.id.appointment_fragment_container, 
 							      new ScheduleDateConfirm());
 					fragmentTransaction.addToBackStack(null);
 					fragmentTransaction.commit();
-					ScheduleActivity._fragmentManager.executePendingTransactions();
 				}
 				else {
 					// if user has not selected a valid date, pop up a dialog to remind user

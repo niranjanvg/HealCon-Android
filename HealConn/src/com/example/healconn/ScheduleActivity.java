@@ -32,20 +32,16 @@ public class ScheduleActivity extends Activity {
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;	 
-	// nav drawer title
-	private CharSequence mDrawerTitle; 
-	// used to store app title
-	private CharSequence mTitle;	 
-    // slide menu items
-	private String[] navMenuTitles;
+	private CharSequence mDrawerTitle; 	// nav drawer title
+	private CharSequence mTitle; 		// used to store app title	 
+	private String[] navMenuTitles;     // slide menu items
 	private TypedArray navMenuIcons; 
 	private ArrayList<NavDrawerItem> navDrawerItems;
 	private NavDrawerListAdapter adapter;
 	
 	private GoogleMap mMap;
 	private final int black = 0xff000000;
-    public static FragmentManager _fragmentManager;
-    private FrameLayout _appointmentFrameLayout;
+    private FragmentManager _fragmentManager;
     
 	@SuppressLint("NewApi")
 	@Override
@@ -53,6 +49,29 @@ public class ScheduleActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_schedule);
 		
+		configureNavigationDrawer();
+        
+		/* Set up google map data */
+		mMap = ((MapFragment) getFragmentManager()
+                .findFragmentById(R.id.map)).getMap();
+        LatLng UHS = new LatLng(40.444987, -79.943503);
+        mMap.setMyLocationEnabled(true);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(UHS, 17));
+        mMap.addMarker(new MarkerOptions()
+                .title("University Health Service Center")
+                .snippet("Carnegie Mellon University UHS")
+                .position(UHS));
+        
+        /* initialize fragment manager and frame layout */
+        _fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = 
+        		            _fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.appointment_fragment_container,
+        		            new ScheduleDatePicker());
+        fragmentTransaction.commit();
+    }
+
+	private void configureNavigationDrawer() {
 		// configure navigation drawer
 		mTitle = mDrawerTitle = getTitle();	 
         // load slide menu items
@@ -107,32 +126,9 @@ public class ScheduleActivity extends Activity {
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
-        
-		/* Set up google map data */
-		mMap = ((MapFragment) getFragmentManager()
-                .findFragmentById(R.id.map)).getMap();
-        LatLng UHS = new LatLng(40.444987, -79.943503);
-        mMap.setMyLocationEnabled(true);
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(UHS, 17));
-        mMap.addMarker(new MarkerOptions()
-                .title("University Health Service Center")
-                .snippet("Carnegie Mellon University UHS")
-                .position(UHS));
-        
-        /* initialize fragment manager and frame layout */
-        _fragmentManager = getFragmentManager();
-        _appointmentFrameLayout = (FrameLayout) 
-        		            findViewById(R.id.appointment_fragment_container);
-        FragmentTransaction fragmentTransaction = 
-        		            _fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.appointment_fragment_container,
-        		            new ScheduleDatePicker());
-        fragmentTransaction.commit();
-    }
+	}
 	
-	/**
-     * Slide menu item click listener
-     * */
+	// Slide menu item click listener
     private class SlideMenuClickListener implements
             ListView.OnItemClickListener {
         @Override
