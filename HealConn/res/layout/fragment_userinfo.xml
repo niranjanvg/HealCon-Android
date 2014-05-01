@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:orientation="vertical" >
+
+    <View
+        android:id="@+id/view0"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp" />
+
+    <ImageView
+        android:id="@+id/user"
+        android:layout_width="198dp"
+        android:layout_height="171dp"
+        android:src="@drawable/user"
+        android:layout_gravity="center" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Name : Yijie Shi"
+        android:textSize = "22sp" />
+
+    <TextView
+        android:id="@+id/department"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Department: CIT"
+        android:textSize = "22sp" />
+
+    <TextView
+        android:id="@+id/studentid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="ID: 430092837"
+        android:textSize = "22sp" />
+
+</LinearLayout>
+

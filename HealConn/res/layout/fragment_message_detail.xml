@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <Button
+        android:id="@+id/button_message_reply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="38dp"
+        android:text="Send Reply" />
+
+    <TextView
+        android:id="@+id/message_detail_reply_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/message_reply_text"
+        android:layout_alignLeft="@+id/message_reply_text"
+        android:layout_marginBottom="13dp"
+        android:text="Reply Message:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/message_reply_text"
+        android:layout_width="500dp"
+        android:layout_height="150dp"
+        android:layout_above="@+id/button_message_reply"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/border"
+        android:ems="10"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:paddingTop="30dp"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:textSize="20sp" >
+    </EditText>
+
+    <EditText
+        android:id="@+id/message_recieved"
+        android:layout_width="500dp"
+        android:layout_height="300dp"
+        android:layout_above="@+id/message_detail_reply_label"
+        android:layout_alignLeft="@+id/message_detail_reply_label"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/border"
+        android:ems="10"
+        android:gravity="top"
+        android:inputType="textMultiLine|textNoSuggestions"
+        android:paddingTop="30dp"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/message_detail_subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/message_detail_content"
+        android:layout_alignTop="@+id/message_sender_photo"
+        android:layout_marginTop="50dp"
+        android:text="Subject:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/message_detail_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/message_detail_subject"
+        android:layout_below="@+id/message_detail_subject"
+        android:layout_marginTop="15dp"
+        android:text="Date:"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/message_detail_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/message_recieved"
+        android:layout_alignLeft="@+id/message_recieved"
+        android:layout_marginBottom="12dp"
+        android:text="Content:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ImageView
+        android:id="@+id/message_sender_photo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_above="@+id/message_detail_content"
+        android:layout_alignRight="@+id/message_recieved"
+        android:layout_marginBottom="27dp"
+        android:src="@drawable/user" />
+
+    <TextView
+        android:id="@+id/message_sender_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/message_detail_content"
+        android:layout_alignLeft="@+id/message_sender_photo"
+        android:layout_marginLeft="19dp"
+        android:text="Sender Name"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>

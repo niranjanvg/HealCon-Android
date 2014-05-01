@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!-- should appear as action button -->
+    <item android:id="@+id/action_new_message"
+          android:icon="@drawable/ic_action_new_email"
+          android:title="New Message"
+          android:showAsAction="ifRoom" />
+    <!-- Settings, should always be in the overflow -->
+    <item android:id="@+id/action_logout" android:title="@string/menu_logout_label"></item>
+</menu>
+
