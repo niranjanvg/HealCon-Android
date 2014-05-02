@@ -36,7 +36,7 @@ public class MessageDetailFragment extends Fragment {
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {	
+                             Bundle savedInstanceState) {
 		return inflater.inflate(R.layout.fragment_message_detail, container, false);
 	}
 	
@@ -59,7 +59,6 @@ public class MessageDetailFragment extends Fragment {
 		dateTV.setText("Date: " + date);
 		
 		// display sender info
-		String senderID = selectedMessage.getString(ParseConstants.KEY_SENDER_ID);
 		String senderName = selectedMessage.getString(ParseConstants.KEY_SENDER_NAME);
 		TextView senderNameTV = (TextView) getActivity().findViewById(R.id.message_sender_name);
 		senderNameTV.setText(senderName);
@@ -89,18 +88,22 @@ public class MessageDetailFragment extends Fragment {
 				// creates a message and deliver response to sender
 				EditText replyTextfield = (EditText) getActivity().findViewById(R.id.message_reply_text);
 				String replyText = replyTextfield.getText().toString();
-				ParseObject message = createMessage("Reply from UHS", replyText);
+				ParseObject message;
+				if (!senderID.equals("f1Z0BcuID7")) {
+					message = createMessage("Reply from UHS", replyText);
+				} else {
+					message = createMessage("Reply from " + ParseUser.getCurrentUser().getString("name"), replyText);
+				}
 				send(message);
 				
 				// After sending the Message, send a push notification to UHS
 				// First, create a query
 				ParseQuery<ParseInstallation> pushQuery = ParseInstallation.getQuery();
-				pushQuery.whereEqualTo("channels", "HealConn_Message_Channel"); // Set the channel
 				pushQuery.whereEqualTo("userId", MessageDetailFragment.this.senderID);
 				// Second, send set query to push
 				ParsePush push = new ParsePush();
 				push.setQuery(pushQuery);
-				push.setMessage("New message from " 
+				push.setMessage("New message from "
 				                + ParseUser.getCurrentUser().getString("name") + "......");
 				push.sendInBackground();
 				
@@ -108,8 +111,8 @@ public class MessageDetailFragment extends Fragment {
 				// navigate to inbox
 				FragmentTransaction fragmentTransaction = getFragmentManager()
 				.beginTransaction();
-				fragmentTransaction.replace(R.id.message_fragment_container, 
-				      new MessengerInboxFragment());
+				fragmentTransaction.replace(R.id.message_fragment_container,
+                                            new MessengerInboxFragment());
 				fragmentTransaction.commit();
 			}
 		});
@@ -127,15 +130,15 @@ public class MessageDetailFragment extends Fragment {
 		return message;
 	}
 	
-	// sends a message 
+	// sends a message
 	private void send(ParseObject message) {
 		try {
 			message.save();
-			Toast.makeText(getActivity(), "Your Message has been successfully delivered!", 
-					Toast.LENGTH_LONG).show();
+			Toast.makeText(getActivity(), "Your Message has been successfully delivered!",
+                           Toast.LENGTH_LONG).show();
 		} catch (ParseException e) {
-			Toast.makeText(getActivity(), "Encountered error when sending your message...", 
-					Toast.LENGTH_LONG).show();
+			Toast.makeText(getActivity(), "Encountered error when sending your message...",
+                           Toast.LENGTH_LONG).show();
 		}
 	}
 }
