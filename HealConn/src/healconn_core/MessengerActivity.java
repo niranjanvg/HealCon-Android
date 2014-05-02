@@ -40,9 +40,13 @@ public class MessengerActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_messenger);
-		// set up navigation drawer
-		configureNavigationDrawer();	
+		if (!MainActivity.isAdmin) {
+			setContentView(R.layout.activity_messenger);
+			// set up navigation drawer
+			configureNavigationDrawer();
+		} else {
+			setContentView(R.layout.activity_messenger_uhs);
+		}	
 		// set initial fragment view
 		FragmentTransaction fragmentTransaction = getFragmentManager()
 		.beginTransaction();
