@@ -95,6 +95,7 @@ public class MessageDetailFragment extends Fragment {
 				// After sending the Message, send a push notification to UHS
 				// First, create a query
 				ParseQuery<ParseInstallation> pushQuery = ParseInstallation.getQuery();
+				pushQuery.whereEqualTo("channels", "HealConn_Message_Channel"); // Set the channel
 				pushQuery.whereEqualTo("userId", MessageDetailFragment.this.senderID);
 				// Second, send set query to push
 				ParsePush push = new ParsePush();

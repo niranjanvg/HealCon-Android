@@ -18,7 +18,7 @@ public class HealConnApplication extends Application{
 		  ParseInstallation installation = ParseInstallation.getCurrentInstallation();
 		  installation.saveInBackground();
 			
-		  PushService.setDefaultPushCallback(this, MessengerActivity.class);
+		  // PushService.setDefaultPushCallback(this, MessengerActivity.class);
 	}
 	
 }
