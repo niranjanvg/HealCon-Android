@@ -13,8 +13,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.healconn.R;
+import com.parse.Parse;
 import com.parse.ParseAnalytics;
+import com.parse.ParseInstallation;
 import com.parse.ParseUser;
+import com.parse.PushService;
 
 public class MainActivity extends Activity {
 	
@@ -25,6 +28,15 @@ public class MainActivity extends Activity {
 	public static final String TAG = MainActivity.class.getSimpleName();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		
+		/* After Login, in Main Activity, subscribe HealConn Message Channel enable to
+		 * send push and receive push from other devices */
+		PushService.subscribe(this, "HealConn_Message_Channel", MessengerActivity.class);
+		/* upload current user objectId to Installation class(form) on the back-end */
+		ParseInstallation installation = ParseInstallation.getCurrentInstallation();
+		installation.put("userId", ParseUser.getCurrentUser().getObjectId());
+		installation.saveInBackground();
+		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		

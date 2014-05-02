@@ -3,7 +3,7 @@ package healconn_core;
 import android.app.Application;
 
 import com.parse.Parse;
-import com.parse.ParseObject;
+import com.parse.PushService;
 
 public class HealConnApplication extends Application{
 

@@ -20,7 +20,9 @@ import android.widget.Toast;
 import com.example.healconn.R;
 import com.parse.ParseException;
 import com.parse.ParseFile;
+import com.parse.ParseInstallation;
 import com.parse.ParseObject;
+import com.parse.ParsePush;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
@@ -89,6 +91,19 @@ public class MessageDetailFragment extends Fragment {
 				String replyText = replyTextfield.getText().toString();
 				ParseObject message = createMessage("Reply from UHS", replyText);
 				send(message);
+				
+				// After sending the Message, send a push notification to UHS
+				// First, create a query
+				ParseQuery<ParseInstallation> pushQuery = ParseInstallation.getQuery();
+				pushQuery.whereEqualTo("userId", MessageDetailFragment.this.senderID);
+				// Second, send set query to push
+				ParsePush push = new ParsePush();
+				push.setQuery(pushQuery);
+				push.setMessage("New message from " 
+				                + ParseUser.getCurrentUser().getString("name") + "......");
+				push.sendInBackground();
+				
+				
 				// navigate to inbox
 				FragmentTransaction fragmentTransaction = getFragmentManager()
 				.beginTransaction();
