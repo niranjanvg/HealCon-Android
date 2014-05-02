@@ -22,6 +22,7 @@ import android.widget.ListView;
 
 import com.example.healconn.R;
 import com.parse.ParseUser;
+import com.parse.PushService;
 
 public class FormsActivity extends Activity {
 	
@@ -66,6 +67,7 @@ public class FormsActivity extends Activity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_logout) {
+			PushService.unsubscribe(this, "HealConn_Message_Channel");
 			ParseUser.logOut();
 			Intent intent = new Intent(this, LoginActivity.class);
 			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

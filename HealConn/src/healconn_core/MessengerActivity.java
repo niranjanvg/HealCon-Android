@@ -22,6 +22,7 @@ import android.widget.ListView;
 
 import com.example.healconn.R;
 import com.parse.ParseUser;
+import com.parse.PushService;
 
 
 public class MessengerActivity extends Activity {
@@ -62,6 +63,7 @@ public class MessengerActivity extends Activity {
 	    // Handle presses on the action bar items
 	    switch (item.getItemId()) {
 	    	case R.id.action_logout:
+	    		PushService.unsubscribe(this, "HealConn_Message_Channel");
 				ParseUser.logOut();
 				Intent intent = new Intent(this, LoginActivity.class);
 				intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

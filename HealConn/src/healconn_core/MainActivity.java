@@ -29,10 +29,11 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
-		/* After Login, in Main Activity, subscribe HealConn Message Channel enable to
+		/* subscribe HealConn Message Channel enable to
 		 * send push and receive push from other devices */
 		PushService.subscribe(this, "HealConn_Message_Channel", MessengerActivity.class);
-		/* upload current user objectId to Installation class(form) on the back-end */
+		
+		/* after login, save userId to Installation object */
 		ParseInstallation installation = ParseInstallation.getCurrentInstallation();
 		installation.put("userId", ParseUser.getCurrentUser().getObjectId());
 		installation.saveInBackground();
@@ -100,6 +101,7 @@ public class MainActivity extends Activity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_logout) {
+			PushService.unsubscribe(this, "HealConn_Message_Channel");
 			ParseUser.logOut();
 			navigateToLogin();
 		}

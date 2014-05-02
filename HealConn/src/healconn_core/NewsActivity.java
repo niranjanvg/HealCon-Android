@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import com.example.healconn.R;
 import com.parse.ParseUser;
+import com.parse.PushService;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -86,6 +87,7 @@ public class NewsActivity extends ListActivity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_logout) {
+			PushService.unsubscribe(this, "HealConn_Message_Channel");
 			ParseUser.logOut();
 			Intent intent = new Intent(this, LoginActivity.class);
 			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
