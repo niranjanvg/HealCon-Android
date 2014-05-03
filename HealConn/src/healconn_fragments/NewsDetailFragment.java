@@ -25,6 +25,8 @@ public class NewsDetailFragment extends Fragment {
 		Uri newsUri = NewsHomeFragment.newsUri;
 		WebView webView = (WebView) getActivity().findViewById(R.id.news_webview);
 		webView.setWebViewClient(new WebViewClient());
+		webView.getSettings().setBuiltInZoomControls(true);
+		webView.getSettings().setSupportZoom(true);
 		webView.loadUrl(newsUri.toString());
 
 	}
