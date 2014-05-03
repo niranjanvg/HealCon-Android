@@ -55,8 +55,7 @@
         <activity
             android:name="healconn_core.ScheduleActivity"
             android:label="@string/title_activity_schedule"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan|stateHidden" >
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="healconn_core.NewsActivity"
@@ -66,19 +65,13 @@
         <activity
             android:name="healconn_core.FormsActivity"
             android:label="@string/title_activity_forms"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan|stateHidden" >
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="healconn_core.MessengerActivity"
             android:label="@string/title_activity_messenger"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" >
-        </activity>
-        <activity
-            android:name="healconn_core.NewsWebViewActivity"
-            android:label="@string/title_activity_news_web_view"
-            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="healconn_core.LoginActivity"
