@@ -25,25 +25,37 @@
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Name : Yijie Shi"
+        android:gravity="left"
+        android:paddingLeft="8dp"
         android:textSize = "22sp" />
 
     <TextView
         android:id="@+id/department"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Department: CIT"
+        android:gravity="left"
+        android:paddingLeft="8dp"
         android:textSize = "22sp" />
 
     <TextView
         android:id="@+id/studentid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="ID: 430092837"
+        android:gravity="left"
+        android:paddingLeft="8dp"
         android:textSize = "22sp" />
 
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="260dp" />
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:paddingLeft="5dp"
+        android:textSize="15sp"
+        android:text="@string/uhsInformation" />
+    
 </LinearLayout>
 

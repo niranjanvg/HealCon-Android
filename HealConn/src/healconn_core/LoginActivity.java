@@ -3,6 +3,7 @@ package healconn_core;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,11 +27,22 @@ public class LoginActivity extends Activity {
 	private Button btt_signUp;
 	private Button btt_login;
 	
+	public static Typeface robotoRegular;
+	public static Typeface robotoLightItalic;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		setContentView(R.layout.activity_login);
+		
+		/* create access to roboto font to project */
+		robotoRegular = Typeface.createFromAsset(
+          		this.getAssets(),
+          		"RobotoCondensed-Regular.ttf");
+		robotoLightItalic = Typeface.createFromAsset(
+          		this.getAssets(),
+          		"RobotoCondensed-LightItalic.ttf");
 		
 		btt_login = (Button) findViewById(R.id.button_login);
 		btt_signUp = (Button) findViewById(R.id.button_sign_up);

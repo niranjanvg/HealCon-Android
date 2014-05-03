@@ -7,21 +7,24 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical" >
     
     	<TextView
+    	    android:id="@+id/logoTextView"
     	    android:layout_width="match_parent"
     	    android:layout_height="wrap_content"
+    	    android:paddingLeft="10dp"
     	    android:text="@string/healconn"
-    	    android:textSize="70sp"
-    	    android:paddingLeft="10dp" />
+    	    android:textSize="70sp" />
     	
     	<TextView
+    	    android:id="@+id/subLogoTextView"
     	    android:layout_width="match_parent"
     	    android:layout_height="wrap_content"
     	    android:text="@string/forcarnegiemellon"
     	    android:textSize="20sp"
-    	    android:paddingLeft="240dp" />
+    	    android:paddingLeft="180dp" />
     
     </LinearLayout>
     

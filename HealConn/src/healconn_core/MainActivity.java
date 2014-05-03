@@ -7,10 +7,12 @@ import healconn_fragments.UserInfoFragment;
 import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.example.healconn.R;
 import com.parse.Parse;
@@ -24,7 +26,6 @@ public class MainActivity extends Activity {
 	// private instance variables
 	public static Intent intent = null;
 	public static boolean isAdmin = false;
-	
 	public static final String TAG = MainActivity.class.getSimpleName();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +76,6 @@ public class MainActivity extends Activity {
 			fragmentTransaction.add(R.id.homescreen_fragment_container, new HomeScreenUHSFragment());
 		}
 		fragmentTransaction.commit();
-				
 	}
     
 
