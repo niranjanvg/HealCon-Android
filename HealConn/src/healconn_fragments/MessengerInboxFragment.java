@@ -8,7 +8,6 @@ import java.util.List;
 
 import android.app.FragmentTransaction;
 import android.app.ListFragment;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import com.example.healconn.R;
 import com.parse.FindCallback;
@@ -55,12 +55,26 @@ public class MessengerInboxFragment extends ListFragment {
 						HashMap<String, String> myMessage = new HashMap<String, String>();
 						myMessage.put("subject", message.getString(ParseConstants.KEY_SUBJECT));
 						myMessage.put("sender", message.getString(ParseConstants.KEY_SENDER_NAME));
+						String senderID = message.getString(ParseConstants.KEY_SENDER_ID);
+						ParseQuery<ParseUser> userQuery = ParseUser.getQuery();
+						userQuery.whereEqualTo("objectId", senderID);
+						try {
+							List<ParseUser> results = userQuery.find();
+							if (results.size() == 1 ) {
+								ParseUser messageSender = results.get(0);
+								Uri picUri = Uri.parse(messageSender.getParseFile("userPic").getUrl());
+								myMessage.put("uri", picUri.toString());
+							}			
+						} catch (ParseException e1) {
+							// error
+							Toast.makeText(getActivity(), "Picture not adapted!", Toast.LENGTH_LONG).show();
+						}
 						myMessages.add(myMessage);
 					}
-					String[] keys = {"subject", "sender"};
-					int[] ids = {android.R.id.text1, android.R.id.text2};
+					String[] keys = {"subject", "sender", "uri"};
+					int[] ids = {R.id.message_subject, R.id.message_sender_name, R.id.message_sender_photo};
 					SimpleAdapter adapter = new SimpleAdapter(getActivity().getBaseContext(),
-												myMessages, android.R.layout.simple_list_item_2, keys, ids);
+												myMessages, R.layout.row_layout_message, keys, ids);
 					setListAdapter(adapter);  
 					
 				} else {

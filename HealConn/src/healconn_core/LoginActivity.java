@@ -100,10 +100,8 @@ public class LoginActivity extends Activity {
 								dialog.show();
 							}
 						}
-					});
-					
+					});					
 				}
-				
 			}
 		});
 
