@@ -27,7 +27,7 @@ public class LoginActivity extends Activity {
 	private Button btt_signUp;
 	private Button btt_login;
 	
-	public static Typeface robotoThin;
+	public static Typeface robotoRegular;
 	public static Typeface robotoLightItalic;
 	
 	@Override
@@ -37,9 +37,9 @@ public class LoginActivity extends Activity {
 		setContentView(R.layout.activity_login);
 		
 		/* create access to roboto font to project */
-		robotoThin = Typeface.createFromAsset(
+		robotoRegular = Typeface.createFromAsset(
           		this.getAssets(),
-          		"Roboto-Thin.ttf");
+          		"RobotoCondensed-Regular.ttf");
 		robotoLightItalic = Typeface.createFromAsset(
           		this.getAssets(),
           		"RobotoCondensed-LightItalic.ttf");

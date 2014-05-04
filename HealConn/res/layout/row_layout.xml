@@ -6,21 +6,21 @@
     
 	<ImageView
         android:id="@+id/thumbnail"
-        android:layout_width="160dp"
-        android:layout_height="70dp"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
         android:paddingBottom="10dp"/>
 	
 	<View 
-	    android:layout_width="10dp"
+	    android:layout_width="20dp"
 	    android:layout_height="match_parent"/>
         
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
+        android:textSize="24sp"
         android:layout_gravity="center"/>
  
 </LinearLayout>

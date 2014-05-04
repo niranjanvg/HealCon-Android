@@ -13,7 +13,7 @@
 
     <ImageButton
         android:id="@+id/button_immun"
-        android:layout_width="300dp"
+        android:layout_width="500dp"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_gravity="center"
@@ -27,7 +27,7 @@
     
     <ImageButton
         android:id="@+id/button_history"
-        android:layout_width="300dp"
+        android:layout_width="500dp"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_gravity="center"
@@ -41,7 +41,7 @@
 
     <ImageButton
         android:id="@+id/button_feedback"
-        android:layout_width="300dp"
+        android:layout_width="500dp"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_gravity="center"

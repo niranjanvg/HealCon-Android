@@ -16,7 +16,7 @@
     	    android:layout_height="wrap_content"
     	    android:paddingLeft="10dp"
     	    android:text="@string/healconn"
-    	    android:textSize="80sp" />
+    	    android:textSize="70sp" />
     	
     	<TextView
     	    android:id="@+id/subLogoTextView"
