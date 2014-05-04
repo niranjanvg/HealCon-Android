@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import model.NavDrawerItem;
 import adapter.NavDrawerListAdapter;
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.res.TypedArray;
@@ -40,6 +41,8 @@ public class NewsActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_news);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setHomeButtonEnabled(true);
 		configureNavigationDrawer();
 		
 		// set initial fragment view
@@ -71,6 +74,15 @@ public class NewsActivity extends Activity {
 			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 			startActivity(intent);
+		}
+		if (id == android.R.id.home) {
+			FragmentManager fm = getFragmentManager();
+			if (fm.getBackStackEntryCount() > 0) {
+				fm.popBackStack();
+			} else {
+    			Intent backToHomeIntent = new Intent(this, MainActivity.class);
+    			startActivity(backToHomeIntent);
+    		}
 		}
 		return super.onOptionsItemSelected(item);
 	}

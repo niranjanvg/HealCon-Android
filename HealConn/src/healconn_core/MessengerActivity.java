@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import model.NavDrawerItem;
 import adapter.NavDrawerListAdapter;
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.res.TypedArray;
@@ -46,7 +47,12 @@ public class MessengerActivity extends Activity {
 			configureNavigationDrawer();
 		} else {
 			setContentView(R.layout.activity_messenger_uhs);
-		}	
+		}
+		
+		// setup UP button
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setHomeButtonEnabled(true);
+		
 		// set initial fragment view
 		FragmentTransaction fragmentTransaction = getFragmentManager()
 		.beginTransaction();
@@ -81,9 +87,19 @@ public class MessengerActivity extends Activity {
 							.beginTransaction();
 					fragmentTransaction.replace(R.id.message_fragment_container, 
 					      new NewMessageFragment());
+					fragmentTransaction.addToBackStack(null);
 					fragmentTransaction.commit();
 	        	} 
 	            return true;
+	        case android.R.id.home:
+	    		FragmentManager fm = getFragmentManager();
+	    		if (fm.getBackStackEntryCount() > 0) {
+	    			fm.popBackStack();
+	    		} else {
+	    			Intent backToHomeIntent = new Intent(this, MainActivity.class);
+	    			startActivity(backToHomeIntent);
+	    		}
+	    		return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
 	    }

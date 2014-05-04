@@ -40,7 +40,11 @@ public class FormsActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_forms);			
+		setContentView(R.layout.activity_forms);
+		// setup UP button
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setHomeButtonEnabled(true);
+		
 		// set up initial fragments
 		FragmentTransaction fragmentTransaction = getFragmentManager()
 				.beginTransaction();
@@ -73,6 +77,15 @@ public class FormsActivity extends Activity {
 			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 			startActivity(intent);
+		}
+		if (id == android.R.id.home) {
+			FragmentManager fm = getFragmentManager();
+			if (fm.getBackStackEntryCount() > 0) {
+				fm.popBackStack();
+			} else {
+    			Intent backToHomeIntent = new Intent(this, MainActivity.class);
+    			startActivity(backToHomeIntent);
+    		}
 		}
 		return super.onOptionsItemSelected(item);
 	}

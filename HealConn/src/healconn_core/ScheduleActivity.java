@@ -11,7 +11,6 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -20,7 +19,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.FrameLayout;
 import android.widget.ListView;
 
 import com.example.healconn.R;
@@ -53,7 +51,9 @@ public class ScheduleActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_schedule);
-		
+		// setup UP button
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setHomeButtonEnabled(true); 
 		configureNavigationDrawer();
         
 		/* Set up google map data */
@@ -193,6 +193,15 @@ public class ScheduleActivity extends Activity {
 			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 			startActivity(intent);
+		}
+		if (id == android.R.id.home) {
+			FragmentManager fm = getFragmentManager();
+			if (fm.getBackStackEntryCount() > 0) {
+				fm.popBackStack();
+			} else {
+    			Intent backToHomeIntent = new Intent(this, MainActivity.class);
+    			startActivity(backToHomeIntent);
+    		}
 		}
 		return super.onOptionsItemSelected(item);
 	}
