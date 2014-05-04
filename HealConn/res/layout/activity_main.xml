@@ -18,11 +18,12 @@
     	    class="com.example.healconn.HomescreenLogo" />
     
     </LinearLayout>
-
+ 
     <View
     	android:layout_width="fill_parent"
-    	android:layout_height="3dp"
+    	android:layout_height="1dp"
     	android:background="@android:color/black"/>
+
     
 	<LinearLayout
 	    android:layout_height="0dp"
@@ -38,10 +39,12 @@
         	class="com.example.healconn.UserInfo" />
     
     	<!-- Vertical Seperationg Line between two fragments -->
+
     	<View
-    		android:layout_width="3dp"
+    		android:layout_width="1dp"
     		android:layout_height="fill_parent"
     		android:background="@android:color/black"/>
+
 
     	<FrameLayout
         	android:id="@+id/homescreen_fragment_container"
