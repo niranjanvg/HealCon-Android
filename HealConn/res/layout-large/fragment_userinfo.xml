@@ -11,15 +11,15 @@
 
     <ImageView
         android:id="@+id/user"
-        android:layout_width="160dp"
-        android:layout_height="130dp"
+        android:layout_width="198dp"
+        android:layout_height="171dp"
         android:src="@drawable/user"
         android:layout_gravity="center" />
 
     <View
         android:id="@+id/view1"
         android:layout_width="wrap_content"
-        android:layout_height="15dp" />
+        android:layout_height="38dp" />
 
     <TextView
         android:id="@+id/name"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:gravity="left"
         android:paddingLeft="8dp"
-        android:textSize = "10sp" />
+        android:textSize = "22sp" />
 
     <TextView
         android:id="@+id/department"
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:gravity="left"
         android:paddingLeft="8dp"
-        android:textSize = "10sp" />
+        android:textSize = "22sp" />
 
     <TextView
         android:id="@+id/studentid"
@@ -43,18 +43,18 @@
         android:layout_height="wrap_content"
         android:gravity="left"
         android:paddingLeft="8dp"
-        android:textSize = "10sp" />
+        android:textSize = "22sp" />
 
     <View
         android:layout_width="wrap_content"
-        android:layout_height="100dp" />
+        android:layout_height="260dp" />
     
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="left"
         android:paddingLeft="5dp"
-        android:textSize="10sp"
+        android:textSize="15sp"
         android:text="@string/uhsInformation" />
     
 </LinearLayout>
