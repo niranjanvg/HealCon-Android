@@ -1,32 +1,16 @@
 package entities;
 
-import java.io.Serializable;
-
-public class User implements Serializable {
+public abstract class User {
 	
-	// private instance variables
-	private String name;
-	private String department;
-	private String studentID;
+	protected String userName;
+	protected String password;
 	
-	// constructor
-	public User(String name, String department, String studentID) {
-		this.name = name;
-		this.department = department;
-		this.studentID = studentID;
+	public User() {
 	}
 	
-	// getters
-	public String getName() {
-		return name;
-	}
+	abstract void setUserName(String userName) ;
+	abstract void setPassWord(String password);
+	abstract String getUserName();
 	
-	public String getDepartment() {
-		return department;
-	}
-	
-	public String getStudentID() {
-		return studentID;
-	}
-	
+	// no getter for password for user privacy
 }

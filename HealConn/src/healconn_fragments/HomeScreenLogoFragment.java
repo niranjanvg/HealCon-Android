@@ -24,8 +24,8 @@ public class HomeScreenLogoFragment extends Fragment {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		TextView logo = (TextView) getActivity().findViewById(R.id.logoTextView);
-		logo.setTypeface(LoginActivity.robotoRegular);
+		logo.setTypeface(LoginActivity.robotoThin);
 		TextView subLogo = (TextView) getActivity().findViewById(R.id.subLogoTextView);
-		subLogo.setTypeface(LoginActivity.robotoLightItalic);
+		subLogo.setTypeface(LoginActivity.robotoThin);
 	}
 }

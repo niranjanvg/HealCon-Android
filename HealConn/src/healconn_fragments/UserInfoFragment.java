@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 import com.example.healconn.R;
 
-import entities.User;
+import entities.HealConnUser;
 
 
 public class UserInfoFragment extends Fragment {
@@ -28,7 +28,7 @@ public class UserInfoFragment extends Fragment {
 	private static String studentID;
 	private static byte[] imgBytes;
 	private Intent intent;
-	private User currUser;
+	private HealConnUser currUser;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -79,7 +79,7 @@ public class UserInfoFragment extends Fragment {
 	@SuppressLint("NewApi")
 	private void displayUser() {
 		// display name, department, studentID
-		currUser = (User) intent.getExtras().getSerializable("user");
+		currUser = (HealConnUser) intent.getExtras().getSerializable("user");
 		name = currUser.getName();
 		department = currUser.getDepartment();
 		studentID = currUser.getStudentID();

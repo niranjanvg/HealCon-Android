@@ -18,12 +18,12 @@ import com.parse.ParseInstallation;
 import com.parse.ParseUser;
 import com.parse.PushService;
 
-import entities.User;
+import entities.HealConnUser;
 
 public class MainActivity extends Activity {
 	
 	// private instance variables
-	private User currUser;
+	private HealConnUser currUser;
 	
 	// public instance variables
 	public static Intent intent = null;
@@ -59,7 +59,7 @@ public class MainActivity extends Activity {
 		
 		// see if user is UHS
 		if (intent.getExtras() != null) {
-			currUser = (User) intent.getExtras().getSerializable("user");
+			currUser = (HealConnUser) intent.getExtras().getSerializable("user");
 			if (currUser.getName().equals("UHS")) {
 				isAdmin = true;
 			}

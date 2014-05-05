@@ -16,7 +16,7 @@ import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
 
-import entities.User;
+import entities.HealConnUser;
 
 public class LoginActivity extends Activity {
 	
@@ -27,7 +27,7 @@ public class LoginActivity extends Activity {
 	private Button btt_signUp;
 	private Button btt_login;
 	
-	public static Typeface robotoRegular;
+	public static Typeface robotoThin;
 	public static Typeface robotoLightItalic;
 	
 	@Override
@@ -37,9 +37,9 @@ public class LoginActivity extends Activity {
 		setContentView(R.layout.activity_login);
 		
 		/* create access to roboto font to project */
-		robotoRegular = Typeface.createFromAsset(
+		robotoThin = Typeface.createFromAsset(
           		this.getAssets(),
-          		"RobotoCondensed-Regular.ttf");
+          		"Roboto-Thin.ttf");
 		robotoLightItalic = Typeface.createFromAsset(
           		this.getAssets(),
           		"RobotoCondensed-LightItalic.ttf");
@@ -86,7 +86,7 @@ public class LoginActivity extends Activity {
 								String name = (String) user.get("name");
 								String department = (String) user.get("department");
 								String studentID = (String) user.get("studentID");
-								User currUser = new User(name, department, studentID);
+								HealConnUser currUser = new HealConnUser(name, department, studentID);
 								ParseFile profilePic = user.getParseFile("userPic");
 								byte[] imgBytes = null;
 								try {
