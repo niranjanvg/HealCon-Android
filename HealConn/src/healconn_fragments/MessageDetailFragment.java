@@ -1,5 +1,6 @@
 package healconn_fragments;
 
+import util.ImageDecoder;
 import healconn_core.ParseConstants;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -69,8 +70,7 @@ public class MessageDetailFragment extends Fragment {
 			ParseObject user = query.get(senderID);
 			ParseFile userPic = user.getParseFile("userPic");
 			imgBytes = userPic.getData();
-			Bitmap bmp = BitmapFactory.decodeByteArray(imgBytes, 0, imgBytes.length);
-			Drawable drawable =new BitmapDrawable(getResources(), bmp);
+			Drawable drawable = ImageDecoder.makeDrawable(getResources(),imgBytes);
 			ImageView userIV = (ImageView) getActivity().findViewById(R.id.message_sender_photo);
 			userIV.setImageDrawable(drawable);
 			
@@ -107,8 +107,7 @@ public class MessageDetailFragment extends Fragment {
 				push.setMessage("New message from "
 				                + ParseUser.getCurrentUser().getString("name") + "......");
 				push.sendInBackground();
-				
-				
+								
 				// navigate to inbox
 				FragmentTransaction fragmentTransaction = getFragmentManager()
 				.beginTransaction();

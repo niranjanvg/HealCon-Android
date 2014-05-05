@@ -1,9 +1,7 @@
 package healconn_fragments;
 
+import util.ImageDecoder;
 import healconn_core.MainActivity;
-
-import com.example.healconn.R;
-
 import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.content.Intent;
@@ -18,6 +16,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.healconn.R;
+
+import entities.User;
+
 
 public class UserInfoFragment extends Fragment {
 	
@@ -26,6 +28,7 @@ public class UserInfoFragment extends Fragment {
 	private static String studentID;
 	private static byte[] imgBytes;
 	private Intent intent;
+	private User currUser;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -67,8 +70,7 @@ public class UserInfoFragment extends Fragment {
 		}
 		
 		// display profile pic		
-		Bitmap bmp = BitmapFactory.decodeByteArray(imgBytes, 0, imgBytes.length);
-		Drawable drawable =new BitmapDrawable(getResources(), bmp);
+		Drawable drawable = ImageDecoder.makeDrawable(getResources(),imgBytes);
 		ImageView user = (ImageView) getActivity().findViewById(R.id.user);
 		user.setImageDrawable(drawable);
 	}
@@ -77,9 +79,10 @@ public class UserInfoFragment extends Fragment {
 	@SuppressLint("NewApi")
 	private void displayUser() {
 		// display name, department, studentID
-		name = intent.getExtras().getString("name");
-		department = intent.getExtras().getString("department");
-		studentID = intent.getExtras().getString("studentID");
+		currUser = (User) intent.getExtras().getSerializable("user");
+		name = currUser.getName();
+		department = currUser.getDepartment();
+		studentID = currUser.getStudentID();
 		TextView nameText = (TextView) getActivity().findViewById(R.id.name);
 		TextView depText = (TextView) getActivity().findViewById(R.id.department);
 		TextView idText = (TextView) getActivity().findViewById(R.id.studentid);
@@ -99,8 +102,7 @@ public class UserInfoFragment extends Fragment {
 		
 		// display user profile picture
 		imgBytes = intent.getByteArrayExtra("userPic");
-		Bitmap bmp = BitmapFactory.decodeByteArray(imgBytes, 0, imgBytes.length);
-		Drawable drawable =new BitmapDrawable(getResources(), bmp);
+		Drawable drawable = ImageDecoder.makeDrawable(getResources(),imgBytes);
 		ImageView user = (ImageView) getActivity().findViewById(R.id.user);
 		user.setImageDrawable(drawable);
 	}

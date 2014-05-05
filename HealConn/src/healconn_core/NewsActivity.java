@@ -1,9 +1,9 @@
 package healconn_core;
 
-import healconn_fragments.MessengerInboxFragment;
 import healconn_fragments.NewsHomeFragment;
 
 import java.util.ArrayList;
+
 
 import model.NavDrawerItem;
 import adapter.NavDrawerListAdapter;
@@ -182,4 +182,5 @@ public class NewsActivity extends Activity {
         	}
         }
     }
+
 }

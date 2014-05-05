@@ -4,6 +4,8 @@ package healconn_fragments;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import remote_service.NewsService;
+
 import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.net.Uri;
@@ -21,32 +23,12 @@ public class NewsHomeFragment extends ListFragment {
 	// private instance variable
 	public static Uri newsUri;
 
-	private String[] titles = {"Daily Health News from CNN",
-			 				   "New York Times Well Blog",
-							   "CMU Health Service",
-							   "Health.com",
-							   "BBC Health News",
-							   "ABC.GO Health News",
-							   "CBS Health News"};
+	private String[] titles = NewsService.titles;
 
-	private String[] urls = {"http://www.cnn.com/HEALTH/",
-							 "http://well.blogs.nytimes.com",
-							 "http://www.cmu.edu/health-services/",
-							 "http://www.health.com/health/",
-							 "http://www.bbc.com/news/health/",
-							 "http://abcnews.go.com/Health/",
-							 "http://www.cbsnews.com/health/"};
+	private String[] urls = NewsService.urls;
 
 	// Array of integers points to images stored in res/drawable folder
-	private int[] thumbnails = new int[]{
-		R.drawable.news1,
-		R.drawable.news2,
-		R.drawable.news3,
-		R.drawable.news4,
-		R.drawable.news5,
-		R.drawable.news6,
-		R.drawable.news7,
-	};
+	private int[] thumbnails = NewsService.thumbnails;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,

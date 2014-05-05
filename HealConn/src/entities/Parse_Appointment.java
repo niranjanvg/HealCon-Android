@@ -25,11 +25,11 @@ import com.parse.ParseUser;
  */
 
 @ParseClassName("Appointment")
-public class Appointment extends ParseObject {
+public class Parse_Appointment extends ParseObject {
 	
 	private boolean _isSurvey;
 	
-	public Appointment(){
+	public Parse_Appointment(){
 		// a default constructor is required
 	}
 	
@@ -40,10 +40,10 @@ public class Appointment extends ParseObject {
 	public void setUserId(ParseUser userParseUser){
 		put("studentId", userParseUser.get("studentID")); 
 	}
-	public void setDate(Dates date){
+	public void setDate(Parse_Dates date){
 		put("date", date.get("id"));
 	}
-	public void setFormId(SurveyForm surveyForm){
+	public void setFormId(Parse_SurveyForm surveyForm){
 		put("SurveyFormID", surveyForm.get("id"));
 	}
 	public void setIsSurvey(boolean isSurvey){

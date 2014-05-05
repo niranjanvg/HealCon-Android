@@ -12,9 +12,9 @@ import com.parse.ParseObject;
  * 		DoctorName
  */
 @ParseClassName("Dates")
-public class Dates extends ParseObject {
+public class Parse_Dates extends ParseObject {
     
-	public Dates(){
+	public Parse_Dates(){
     	// a default constructor is required	
     }
     

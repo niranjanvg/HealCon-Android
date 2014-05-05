@@ -23,9 +23,9 @@ import com.parse.ParseObject;
  */
 
 @ParseClassName("SurveyForm")
-public class SurveyForm extends ParseObject {
+public class Parse_SurveyForm extends ParseObject {
     
-    public SurveyForm(){
+    public Parse_SurveyForm(){
     	// a default constructor is required
     }
     

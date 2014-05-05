@@ -5,8 +5,6 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -17,6 +15,8 @@ import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
+
+import entities.User;
 
 public class LoginActivity extends Activity {
 	
@@ -86,6 +86,7 @@ public class LoginActivity extends Activity {
 								String name = (String) user.get("name");
 								String department = (String) user.get("department");
 								String studentID = (String) user.get("studentID");
+								User currUser = new User(name, department, studentID);
 								ParseFile profilePic = user.getParseFile("userPic");
 								byte[] imgBytes = null;
 								try {
@@ -96,9 +97,7 @@ public class LoginActivity extends Activity {
 								if (imgBytes != null) {
 									intent.putExtra("userPic", imgBytes);
 								}
-								intent.putExtra("name", name);
-								intent.putExtra("department", department);
-								intent.putExtra("studentID", studentID);
+								intent.putExtra("user", currUser);
 								
 								startActivity(intent);
 							}

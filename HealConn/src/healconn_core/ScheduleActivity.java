@@ -4,6 +4,8 @@ import healconn_fragments.ScheduleDatePickerFragment;
 
 import java.util.ArrayList;
 
+import remote_service.LocationService;
+
 import model.NavDrawerItem;
 import adapter.NavDrawerListAdapter;
 import android.annotation.SuppressLint;
@@ -43,7 +45,6 @@ public class ScheduleActivity extends Activity {
 	private NavDrawerListAdapter adapter;
 	
 	private GoogleMap mMap;
-	private final int black = 0xff000000;
     private FragmentManager _fragmentManager;
     
 	@SuppressLint("NewApi")
@@ -56,16 +57,10 @@ public class ScheduleActivity extends Activity {
 		getActionBar().setHomeButtonEnabled(true); 
 		configureNavigationDrawer();
         
-		/* Set up google map data */
+		// setup google map service
 		mMap = ((MapFragment) getFragmentManager()
-                .findFragmentById(R.id.map)).getMap();
-        LatLng UHS = new LatLng(40.444987, -79.943503);
-        mMap.setMyLocationEnabled(true);
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(UHS, 17));
-        mMap.addMarker(new MarkerOptions()
-                .title("University Health Service Center")
-                .snippet("Carnegie Mellon University UHS")
-                .position(UHS));
+	            .findFragmentById(R.id.map)).getMap();
+		LocationService.setupGoogleMapService(mMap);
         
         /* initialize fragment manager and frame layout */
         _fragmentManager = getFragmentManager();
@@ -171,6 +166,7 @@ public class ScheduleActivity extends Activity {
         	}
         }
     }
+
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

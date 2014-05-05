@@ -1,29 +1,31 @@
 package healconn_core;
 
 import healconn_fragments.HomeScreenFragment;
-import healconn_fragments.HomeScreenUHSFragment;
 import healconn_fragments.HomeScreenLogoFragment;
+import healconn_fragments.HomeScreenUHSFragment;
 import healconn_fragments.UserInfoFragment;
 import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.example.healconn.R;
-import com.parse.Parse;
 import com.parse.ParseAnalytics;
 import com.parse.ParseInstallation;
 import com.parse.ParseUser;
 import com.parse.PushService;
 
+import entities.User;
+
 public class MainActivity extends Activity {
 	
 	// private instance variables
+	private User currUser;
+	
+	// public instance variables
 	public static Intent intent = null;
 	public static boolean isAdmin = false;
 	public static final String TAG = MainActivity.class.getSimpleName();
@@ -54,9 +56,11 @@ public class MainActivity extends Activity {
 		
 		// retrieve intent
 		intent = getIntent();
+		
 		// see if user is UHS
 		if (intent.getExtras() != null) {
-			if (intent.getExtras().getString("name").equals("UHS")) {
+			currUser = (User) intent.getExtras().getSerializable("user");
+			if (currUser.getName().equals("UHS")) {
 				isAdmin = true;
 			}
 			else {
